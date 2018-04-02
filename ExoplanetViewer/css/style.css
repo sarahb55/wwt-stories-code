@@ -1,0 +1,214 @@
+input {
+    background-color: #30466E;
+    padding: 10px;
+    font-family:"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif, Geneva, sans-serif;
+    font-size: 12pt;
+    color: #FFFFFF;
+    text-align: center;
+}
+#slider {
+    background: rgba(0, 0, 0, 0);
+    border: 0;
+}
+button {
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-radius: 4px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    background: #30466e;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+.button:hover {
+    background: #4768a1;
+    text-decoration: none;
+}
+.mainConsole {
+    margin-top: -330px;
+    margin-left: -900px;
+    position: absolute;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 10px #000000;
+    -moz-box-shadow: 0px 0px 10px #000000;
+    box-shadow: 0px 0px 10px #000000;
+    background-image: -moz-linear-gradient(top, #30466E, #30466E 0%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #30466E), color-stop(0.00, #30466E));
+    border: 0px solid #000000;
+    background-color: #30466E;
+    padding: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12pt;
+    color: #888888;
+    text-align: center;
+    z-index: 4;
+}
+.tiltConsole {
+    -webkit-transition: margin-top .6s;
+    /* For Safari 3.1 to 6.0 */
+    -moz-transition: margin-top .6s;
+    transition: margin-top .6s;
+    margin-top: -325px;
+    margin-left: -900px;
+    position: absolute;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 10px #000000;
+    -moz-box-shadow: 0px 0px 10px #000000;
+    box-shadow: 0px 0px 10px #000000;
+    background-image: -moz-linear-gradient(top, #30466E, #30466E 0%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #30466E), color-stop(0.00, #30466E));
+    border: 0px solid #000000;
+    background-color: #30466E;
+    padding: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12pt;
+    color: #888888;
+    text-align: center;
+    width: 420px;
+    z-index: 3;
+}
+.tiltConsole:hover {
+    margin-top: -200px;
+}
+.viewConsole {
+    -webkit-transition: margin-top .5s;
+    /* For Safari 3.1 to 6.0 */
+    -moz-transition: margin-top .5s;
+    transition: margin-top .5s;
+    margin-top: -195px;
+    margin-left: -900px;
+    position: absolute;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 10px #000000;
+    -moz-box-shadow: 0px 0px 10px #000000;
+    box-shadow: 0px 0px 10px #000000;
+    background-image: -moz-linear-gradient(top, #30466E, #30466E 0%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #30466E), color-stop(0.00, #30466E));
+    border: 0px solid #000000;
+    background-color: #30466E;
+    padding: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12pt;
+    color: #888888;
+    text-align: center;
+    width: 420px;
+    height: 110px;
+    z-index: 2;
+}
+.viewConsole:hover {
+    margin-top: -140px;
+}
+.infoConsole {
+    -webkit-transition: margin-top .5s;
+    /* For Safari 3.1 to 6.0 */
+    -moz-transition: margin-top .5s;
+    transition: margin-top .5s;
+    margin-top: -350px;
+    margin-left: -900px;
+    position: absolute;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 10px #000000;
+    -moz-box-shadow: 0px 0px 10px #000000;
+    box-shadow: 0px 0px 10px #000000;
+    background-image: -moz-linear-gradient(top, #30466E, #30466E 0%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #30466E), color-stop(0.00, #30466E));
+    border: 0px solid #000000;
+    background-color: #30466E;
+    padding: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12pt;
+    color: #888888;
+    text-align: center;
+    width: 420px;
+    z-index: 1;
+}
+.infoConsole:hover {
+    margin-top: -100px;
+}
+.console {
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 11px #000000;
+    -moz-box-shadow: 0px 0px 11px #000000;
+    box-shadow: 0px 0px 11px #000000;
+    background-image: -moz-linear-gradient(top, #30466E, #30466E 0%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #30466E), color-stop(0.00, #30466E));
+    border: 0px solid #000000;
+    background-color: #30466E;
+    padding: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12pt;
+    color: #888888;
+    text-align: center;
+}
+.label {
+    position: absolute;
+    margin-top: 5px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    background-color: #30466E;
+    padding: 10px;
+    opacity: 0.5;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12pt;
+    color: #FFFFFF;
+    text-align: center;
+}
+.angle {
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    background-color: #800000;
+    padding: 10px;
+    opacity: 0.5;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12pt;
+    color: #FFFFFF;
+    text-align: center;
+}
+.bottombar {
+    margin-top: 600px;
+    margin-left: -200px;
+    background-color: #30466E;
+    -webkit-box-shadow: 0px 0px 11px #000000;
+    -moz-box-shadow: 0px 0px 11px #000000;
+    box-shadow: 0px 0px 11px #000000;
+    padding: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12pt;
+    color: #888888;
+    text-align: center;
+}
+body {
+    background-color: #000000;
+    padding: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12pt;
+    color: #888888;
+    text-align: center;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+html {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+

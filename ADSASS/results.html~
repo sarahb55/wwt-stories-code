@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>ADS All Sky Survey</title>
+	<meta name="generator" content="BBEdit 11.0" />
+	<link rel="stylesheet" href="../webfontkit/stylesheet.css" type="text/css" charset="utf-8" />
+    <link href="../stories.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="wrapper3">
+<div id="slidesmall">
+
+
+<div id="slidesmall" style="position:absolute;left:0px;top:370px;z-index:5;">
+
+This is a live version of the ADS All Sky survey on WWT. Try it out!<br/>
+See: <a href="http://www.adsass.org/wwt/" target="_blank">www.adsass.org</a>
+</div>
+
+<iframe src="http://www.adsass.org/wwt/" style="position:absolute;left:-10px;top:-30px;width:705px;height:530px;"> </iframe>
+</div>
+
+
+
+</div>
+</body>
+</html>

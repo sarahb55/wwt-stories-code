@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<!-- Extrasolar Planet Model -->
+<!-- by Tharun Sankar & Albert Lee -->
+
+<html>
+    
+    <head>
+        <meta charset="utf-8" content="chrome=1, IE=edge" http-equiv="X-UA-Compatible" />
+        <title>Extrasolar Planet Visualization</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="http://www.worldwidetelescope.org/scripts/wwtsdk.aspx"></script>
+        <script>
+            // Create the WorldWide telescope object variable
+            var wwt;
+            // Create variables to hold the changeable settings
+            var bShowCrosshairs = false;
+            var bShowUI = true;
+            var bShowFigures = true;
+            var bShowCircles = false;
+
+            var planet1; //top left
+            var planet2; //top right
+            var planet3; //bottom
+            var raTopLeft = 330.87;
+            var decTopLeft = 19.94;
+            var raTopRight = 330.665;
+            var decTopRight = 19.9;
+            var raBottom = 330.7675;
+            var decBottom = 19.73;
+          
+            var star1;
+            var star2;
+            var star3;
+
+            var frontStarTopLeft;
+            var frontStarTopRight;
+            var frontStarBottom;
+
+            var line1;
+
+            var tilt = 0;
+          
+            var radius = 0.04;
+
+
+            // This function initializes the wwt object and registers the wwtReady event
+            // once the initialization is done the wwtReady event will be fired
+            function initialize() {
+                wwt = wwtlib.WWTControl.initControl("WWTCanvas");
+
+                wwt.add_ready(wwtReady);
+
+                wwt.add_arrived(wwtArrived);
+                planet1 = makePlanet(raTopLeft, decTopLeft); //top left
+                planet2 = makePlanet(raTopRight, decTopRight); //top right
+                planet3 = makePlanet(raBottom, decBottom); //bottom
+                frontStarTopLeft = createWWTCircle(true, "white", "white", 3, 1.0, .025, true, 330.87, 19.94);
+                frontStarBottom = createWWTCircle(true, "white", "white", 3, 1.0, .025, true, 330.7675, 19.73);
+                frontStarTopRight = createWWTCircle(true, "white", "white", 3, 1.0, .025, true, 330.665, 19.94);
+              
+                star1 = makeCircle("white", 1.0, .025, 330.87, 19.94); //top left star
+                star2 = makeCircle("white", 1.0, .025, 330.665, 19.94); //top right star
+                star3 = makeCircle("white", 1.0, .025, 330.7675, 19.73); //bottom star
+
+
+            }
+
+            $(function() {
+              $( "#slider" ).slider({
+                min: 0.04,
+                max: 0.15,
+                step: 0.005,
+                value: 0.04,
+                slide: function(event, ui) {
+                radius = ui.value;
+                setPlanetAngle();
+                setRadius();
+                }
+              });
+            });
+
+        $(function() {
+              $( "#size-slider" ).slider({
+                min: 0.0015,
+                max: 0.007,
+                step: 0.0005,
+                value: 0.005,
+                slide: function(event, ui) {
+                  
+                  planet1.set_radius(ui.value);
+                  planet2.set_radius(ui.value);
+                  planet3.set_radius(ui.value);
+}
+              });
+            });
+
+            function replaceContentInContainer(id, content) {
+                var container = document.getElementById(id);
+                container.innerHTML = content;
+            }
+            
+          function randomize(){
+            goToView('Bottom');
+            var randomRadius = Math.floor(Math.random() * 23);
+            radius = randomRadius * 0.005 + 0.04;
+            var randomAngle = Math.floor(Math.random() * 11) - 5;
+            angle = randomAngle * 18;
+            setRadius();
+            $("#slider").slider('option','value',radius);
+            replaceContentInContainer("Angle", angle.toString() + "°");
+            tilt =  radius * Math.sin(angle * Math.PI / 180);
+            setPlanetAngle();
+
+          }
+          
+            var presetBoolean = false;
+            // A function to switch viewpoints
+            function goToView(text) {
+
+                switch (text) {
+                    case 'TopLeft':
+                        wwt.gotoRaDecZoom(330.5358, 19.94, 0.5, false);
+                        document.getElementById("Angle").className = "notangle";
+                        replaceContentInContainer("ViewName", "Front View");
+                        replaceContentInContainer("Angle", "");
+                        setOpacity("left");
+                        presetBoolean = false;
+                        break;
+                    case 'TopRight':
+                        wwt.gotoRaDecZoom(330.5358, 19.94, 0.5, false);
+                        document.getElementById("Angle").className = "notangle";
+                        replaceContentInContainer("ViewName", "Top View");
+                        replaceContentInContainer("Angle", "");
+                        setOpacity("right");
+                        presetBoolean = false;
+                        break;
+                    case 'Bottom':
+                        wwt.gotoRaDecZoom(330.7055, 19.7, 0.4, false);
+                        document.getElementById("Angle").className = "angle";
+                        replaceContentInContainer("ViewName", "Tilt View");
+                        replaceContentInContainer("Angle", angle.toString() + "°");
+                        setOpacity("bottom");
+                        presetBoolean = true;
+                        break;
+                    case 'TopBoth':
+                        wwt.gotoRaDecZoom(330.5358, 19.94, 0.5, false);
+                        document.getElementById("Angle").className = "notangle";
+                        replaceContentInContainer("ViewName", "Front and Top Views");
+                        replaceContentInContainer("Angle", "");
+                        setOpacity("both");
+                        presetBoolean = false;
+                        break;
+                }
+            }
+            
+          function setOpacity(opaque){
+            if (opaque === "both") {
+              planet1.set_opacity(1);
+              planet1.set_lineColor("brown");
+              planet2.set_opacity(1);
+              planet2.set_lineColor("brown");
+              planet3.set_opacity(0);
+              planet3.set_lineColor("black");
+              
+              star1.set_opacity(1);
+              star1.set_lineColor("white");
+              star2.set_opacity(1);
+              star2.set_lineColor("white");
+              frontStarTopLeft.set_opacity(1);
+              frontStarTopLeft.set_lineColor("white");
+              star3.set_opacity(0);
+              star3.set_lineColor("black");
+              frontStarBottom.set_opacity(0);
+              frontStarBottom.set_lineColor("black");
+            } else if (opaque === "bottom") {
+              planet1.set_opacity(0);
+              planet1.set_lineColor("black");
+              planet2.set_opacity(0);
+              planet2.set_lineColor("black");
+              planet3.set_opacity(1);
+              planet3.set_lineColor("brown");
+              
+              star1.set_opacity(0);
+              star1.set_lineColor("black");
+              star2.set_opacity(0);
+              star2.set_lineColor("black");
+              frontStarTopLeft.set_opacity(0);
+              frontStarTopLeft.set_lineColor("black");
+              star3.set_opacity(1);
+              star3.set_lineColor("white");
+              frontStarBottom.set_opacity(1);
+              frontStarBottom.set_lineColor("white");
+            } else if (opaque === "left") {
+              planet1.set_opacity(1);
+              planet1.set_lineColor("brown");
+              planet2.set_opacity(0);
+              planet2.set_lineColor("black");
+              planet3.set_opacity(0);
+              planet3.set_lineColor("black");
+              
+              star1.set_opacity(1);
+              star1.set_lineColor("white");
+              star2.set_opacity(0);
+              star2.set_lineColor("black");
+              frontStarTopLeft.set_opacity(1);
+              frontStarTopLeft.set_lineColor("white");
+              star3.set_opacity(0);
+              star3.set_lineColor("black");
+              frontStarBottom.set_opacity(0);
+              frontStarBottom.set_lineColor("black");
+            } else if (opaque === "right") {
+              planet1.set_opacity(0);
+              planet1.set_lineColor("black");
+              planet2.set_opacity(1);
+              planet2.set_lineColor("brown");
+              
+              star1.set_opacity(0);
+              star1.set_lineColor("black");
+              star2.set_opacity(1);
+              star2.set_lineColor("white");
+              frontStarTopLeft.set_opacity(0);
+              frontStarTopLeft.set_lineColor("black");
+              frontStarBottom.set_opacity(0);
+              frontStarBottom.set_lineColor("black");
+            }
+            
+          }
+          
+            function presetData(text) {
+              switch(text){
+              case 'HD209458b':
+                  goToView('Bottom');
+                  wwt.gotoRaDecZoom(330.7055, 19.73, 0.31, false);
+                  planet3.set_radius(0.00286783042394014962593516209476);
+                  $("#size-slider").slider('option','value',0.00286783042394014962593516209476);
+                  radius = 0.20464322326489338864941913395524;
+                  tilt = 0;
+                  angle = 0;
+                  replaceContentInContainer("Angle", angle.toString() + "°");
+                  setPlanetAngle();
+                  presetBoolean = true;
+                  break;
+              case 'Earth':
+                  goToView('Bottom');
+                  wwt.gotoRaDecZoom(329.2955, 19.73, 4.5, false);
+                  planet3.set_radius(0.00286783042394014962593516209476);
+                  $("#size-slider").slider('option','value',0.00286783042394014962593516209476);
+                  radius = 2.84057011397538584244716111311;
+                  tilt = 0;
+                  angle = 0;
+                  replaceContentInContainer("Angle", angle.toString() + "°");
+                  setPlanetAngle();
+                  presetBoolean = true;
+                  break;
+              case 'Default':
+                  goToView('Bottom');
+                  planet3.set_radius(0.005);
+                  $("#size-slider").slider('option','value',0.005);
+                  radius = 0.04;
+                  tilt = 0;
+                  angle = 0;
+                  replaceContentInContainer("Angle", angle.toString() + "°");
+                  setPlanetAngle();
+                  $("#slider").slider('option','value',radius);
+                  presetBoolean = true;
+                  break;
+              }
+
+            }
+
+
+            // A function to create a circle, and return a reference to the circle
+            var circleCount = 0;
+
+            function createWWTCircle(fill, lineColor, fillColor, lineWidth, opacity, radius, skyRelative, ra, dec) {
+                var circle = wwt.createCircle(fill);
+                circleCount++;
+                circle.set_id("Circle" + circleCount.toString());
+                circle.set_lineColor(lineColor);
+                circle.set_fillColor(fillColor);
+                circle.set_lineWidth(lineWidth);
+                circle.set_opacity(opacity);
+                circle.set_radius(radius);
+                circle.set_skyRelative(skyRelative);
+                circle.setCenter(ra, dec);
+                return circle;
+            }
+
+            // A function to create a line, and return a reference to the line
+            function createWWTPolyLine(lineColor, lineWidth, opacity, points) {
+
+                var polyLine = wwt.createPolyLine(true);
+
+                polyLine.set_lineColor(lineColor);
+                polyLine.set_lineWidth(lineWidth);
+                polyLine.set_opacity(opacity);
+                for (var i in points) {
+
+                    polyLine.addPoint(points[i][0], points[i][1]);
+                }
+                return polyLine;
+            }
+            // Arrays of points used for lines
+            var points = [
+                [HMS(22, 03, 13.2), DMS(18, 53, 8)],
+                [HMS(22, 03, 100), DMS(18, 53, 8)]
+            ];
+            var points2 = [
+                [HMS(22, 03, 8), DMS(18, 53, 8)],
+                [HMS(22, 03, -78.8), DMS(18, 53, 8)]
+            ];
+            var points3 = [
+                [HMS(22, 03, 10.6), DMS(18, 53, 44.7)],
+                [HMS(22, 03, 10.6), DMS(18, 53, 2000)]
+            ];
+
+            // A function to create the stars and annotate them   
+            function makeCircle(color, opacity, radius, ra, dec) {
+                var circle1 = createWWTCircle(true, color, color, 3, opacity, radius, true, ra, dec);
+                return circle1;
+            }
+
+            // A function to make the planets and return a reference
+            function makePlanet(ra1, dec1) {
+                var planet = createWWTCircle(true, "brown", "brown", 3, 1.0, .005, true, ra1, dec1);
+                return planet;
+
+
+            }
+            var tiltCounter = 0;
+            // 4 functions to move the planets in 1/4 of their orbits
+            function move() {
+                var frms = 0;
+                var frms2 = 0;
+                var frms3 = 0;
+                var id = setInterval(frameTopLeft, 50); // draw every 10ms
+                var id2 = setInterval(frameTopRight, 50);
+                var id3 = setInterval(frameBottom, 50);
+                var t = (3 * Math.PI / 2);
+
+                function frameTopLeft() {
+                    frms++;
+                    t -= ((Math.PI / 2) / 16);
+                    raTopLeft = 330.87 + radius * (Math.cos(t));
+                    planet1.setCenter(raTopLeft, decTopLeft);
+                    if (frms == 16) {
+                        clearInterval(id);
+                        frms = 0;
+                    }
+                }
+
+                function frameTopRight() {
+                    frms2++;
+                    raTopRight = 330.665 + radius * (Math.cos(t));
+                    decTopRight = 19.94 + radius * (Math.sin(t));
+                    planet2.setCenter(raTopRight, decTopRight);
+                    if (frms2 == 16) {
+                        clearInterval(id2);
+                        frms2 = 0;
+                    }
+
+                }
+
+                function frameBottom() {
+                    frms3++;
+                    raBottom = 330.7675 + radius * (Math.cos(t));
+                    decBottom = 19.73 + -tilt * (Math.sin(t));
+                    planet3.setCenter(raBottom, decBottom)
+                    if (frms3 == 16) {
+                        clearInterval(id3);
+                        frms3 = 0;
+                    }
+
+                }
+                tiltCounter++;
+            }
+            /*
+
+MOVE 2
+
+
+
+
+
+
+
+*/
+            function move2() {
+                wwt.addAnnotation(frontStarTopLeft);
+                wwt.addAnnotation(frontStarBottom);
+                var frms = 0;
+                var frms2 = 0;
+                var frms3 = 0;
+                var id = setInterval(frameTopLeft, 50); // draw every 10ms
+                var id2 = setInterval(frameTopRight, 50);
+                var id3 = setInterval(frameBottom, 50);
+                var t = Math.PI;
+
+                function frameTopLeft() {
+                    frms++;
+                    t -= ((Math.PI / 2) / 16);
+                    raTopLeft = 330.87 + radius * (Math.cos(t));
+                    planet1.setCenter(raTopLeft, decTopLeft);
+                    if (frms == 16) {
+                        clearInterval(id);
+                        frms = 0;
+                    }
+                }
+
+                function frameTopRight() {
+                    frms2++;
+                    raTopRight = 330.665 + radius * (Math.cos(t));
+                    decTopRight = 19.94 + radius * (Math.sin(t));
+                    planet2.setCenter(raTopRight, decTopRight);
+                    if (frms2 == 16) {
+                        clearInterval(id2);
+                        frms2 = 0;
+                    }
+
+                }
+
+                function frameBottom() {
+                    frms3++;
+                    raBottom = 330.7675 + radius * (Math.cos(t));
+                    decBottom = 19.73 + -tilt * (Math.sin(t));
+                    planet3.setCenter(raBottom, decBottom)
+                    if (frms3 == 16) {
+                        clearInterval(id3);
+                        frms3 = 0;
+                    }
+
+                }
+                tiltCounter++;
+            }
+            /*
+
+
+
+
+MOVE 3
+
+
+
+
+*/
+            function move3() {
+                var frms = 0;
+                var frms2 = 0;
+                var frms3 = 0;
+                var id = setInterval(frameTopLeft, 50); // draw every 10ms
+                var id2 = setInterval(frameTopRight, 50);
+                var id3 = setInterval(frameBottom, 50);
+                var t = Math.PI / 2;
+
+                function frameTopLeft() {
+                    frms++;
+                    t -= ((Math.PI / 2) / 16);
+                    raTopLeft = 330.87 + radius * (Math.cos(t));
+                    planet1.setCenter(raTopLeft, decTopLeft);
+                    if (frms == 16) {
+                        clearInterval(id);
+                        frms = 0;
+                    }
+                }
+
+                function frameTopRight() {
+                    frms2++;
+                    // t -= ((Math.PI/2)/16);
+                    raTopRight = 330.665 + radius * (Math.cos(t));
+                    decTopRight = 19.94 + radius * (Math.sin(t));
+                    planet2.setCenter(raTopRight, decTopRight);
+                    if (frms2 == 16) {
+                        clearInterval(id2);
+                        frms2 = 0;
+                    }
+
+                }
+
+                function frameBottom() {
+                    frms3++;
+                    raBottom = 330.7675 + radius * (Math.cos(t));
+                    decBottom = 19.73 + -tilt * (Math.sin(t));
+                    planet3.setCenter(raBottom, decBottom)
+                    if (frms3 == 16) {
+                        clearInterval(id3);
+                        frms3 = 0;
+                    }
+
+                }
+
+                tiltCounter++;
+            }
+            /*
+
+
+
+MOVE 4
+
+
+
+
+*/
+            function move4() {
+                wwt.removeAnnotation(frontStarTopLeft);
+                wwt.removeAnnotation(frontStarBottom);
+                var frms = 0;
+                var frms2 = 0;
+                var frms3 = 0;
+                var id = setInterval(frameTopLeft, 50); // draw every 10ms
+                var id2 = setInterval(frameTopRight, 50);
+                var id3 = setInterval(frameBottom, 50);
+                var t = 0;
+
+                function frameTopLeft() {
+                    frms++;
+                    t -= ((Math.PI / 2) / 16);
+                    raTopLeft = 330.87 + radius * (Math.cos(t));
+                    planet1.setCenter(raTopLeft, decTopLeft);
+                    if (frms == 16) {
+                        clearInterval(id);
+                        frms = 0;
+                    }
+                }
+
+                function frameTopRight() {
+                    frms2++;
+                    raTopRight = 330.665 + radius * (Math.cos(t));
+                    decTopRight = 19.94 + radius * (Math.sin(t));
+                    planet2.setCenter(raTopRight, decTopRight);
+                    if (frms2 == 16) {
+                        clearInterval(id2);
+                        frms2 = 0;
+                    }
+
+                }
+
+                function frameBottom() {
+                    frms3++;
+                    raBottom = 330.7675 + radius * (Math.cos(t));
+                    decBottom = 19.73 + -tilt * (Math.sin(t));
+                    planet3.setCenter(raBottom, decBottom)
+                    if (frms3 == 16) {
+                        clearInterval(id3);
+                        frms3 = 0;
+                    }
+
+                }
+
+                tiltCounter = 0;
+            }
+
+
+            var counter = 0;
+
+            function moveButton() {
+                counter++;
+                if (counter == 1) {
+                    move();
+
+                } else if (counter == 2) {
+                    move2();
+
+                } else if (counter == 3) {
+                    move3();
+
+                } else if (counter == 4) {
+                    move4();
+                    counter = 0;
+
+                }
+
+
+
+            }
+
+            var angle = 0;
+          
+            function tiltUpButton() {
+                if (presetBoolean = true){
+                    goToView('Bottom');
+                }
+                document.getElementById("Angle").className = "angle";
+                replaceContentInContainer("ViewName", "Tilt View");
+                if (angle < 90) {
+                  
+                    
+                    angle += 18;
+                    tilt =  radius * Math.sin(angle * Math.PI / 180);
+                  setPlanetAngle();
+                }
+                replaceContentInContainer("Angle", angle.toString() + "°");
+            }
+
+            function tiltDownButton() {
+                if (presetBoolean = false){
+                    goToView('Bottom');
+                }
+                document.getElementById("Angle").className = "angle";
+                replaceContentInContainer("ViewName", "Tilt View");
+                if (angle > -90) {
+
+                    angle -= 18
+                    tilt = radius * Math.sin(angle * Math.PI / 180);
+                  setPlanetAngle();
+                }
+                replaceContentInContainer("Angle", angle.toString() + "°");
+            }
+     
+            // Functions to change the value of playBoolean
+            // playBoolean stores whether the animation is playing or not
+            var playBoolean = true;
+            var playCounter = 0;
+            function setTrue() {
+                playBoolean = true;
+                playCounter++;
+            }
+
+            function setFalse() {
+                playBoolean = false;
+                playCounter = 0;
+            }
+
+            // Functions that allow for continuous animation of the planets
+            function play1() {
+                if (playBoolean == true && playCounter == 1) {
+                    moveButton();
+                    window.setTimeout(play2, 800); // calls play2 after 800ms
+                } else if (playBoolean == true && playCounter > 1){
+                    setFalse();
+                    setTrue();
+                }
+            }
+
+            function play2() {
+                if (playBoolean == true && playCounter == 1) {
+                    moveButton();
+                    window.setTimeout(play1, 800);
+                }
+            }
+
+            function setPlanetAngle() {
+                    if (tiltCounter == 0) {
+                        planet3.setCenter(330.7675 + radius * (Math.cos(Math.PI / 2)), 19.73 + (tilt) * (Math.sin(Math.PI / 2)));
+                    } else if (tiltCounter == 1) {
+                        planet3.setCenter(330.7675 + radius * (Math.cos(Math.PI)), 19.73 + (tilt) * (Math.sin(Math.PI)));
+                    } else if (tiltCounter == 2) {
+                        planet3.setCenter(330.7675 + radius * (Math.cos(3 * Math.PI / 2)), 19.73 + (tilt) * (Math.sin(3 * Math.PI / 2)));
+                    } else if (tiltCounter == 3) {
+                        planet3.setCenter(330.7675 + radius * (Math.cos(0)), 19.73 + (tilt) * (Math.sin(0)));
+                    }
+            }
+            
+          function setRadius() {
+              if (tiltCounter == 0) {
+                  planet1.setCenter(330.87 + radius * (Math.cos(Math.PI / 2)), decTopLeft);
+                  planet2.setCenter(330.665 + radius * (Math.cos(3 * Math.PI / 2)), 19.94 + radius * (Math.sin(3 * Math.PI / 2)));
+              } else if (tiltCounter == 1) {
+                  planet1.setCenter(330.87 + radius * (Math.cos(Math.PI)), decTopLeft);
+                  planet2.setCenter(330.665 + radius * (Math.cos(Math.PI)), 19.94 + radius * (Math.sin(Math.PI)));
+              } else if (tiltCounter == 2) {
+                  planet1.setCenter(330.87 + radius * (Math.cos(Math.PI / 2)), decTopLeft);
+                  planet2.setCenter(330.665 + radius * (Math.cos(Math.PI / 2)), 19.94 + radius * (Math.sin(3 * Math.PI / 2)));
+              } else if (tiltCounter == 3) {
+                  planet1.setCenter(330.87 + radius * (Math.cos(0)), decTopLeft);
+                  planet2.setCenter(330.665 + radius * (Math.cos(0)), 19.94 + radius * (Math.sin(0)));
+              }
+          }
+
+            // Simple function to clear all the annotations from the view
+            function clearAnnotations() {
+                wwt.clearAnnotations();
+            }
+            // wwtArrived (similar to wwtReady) is a reserved name by the WWT Web Control
+            // This function is called when a Goto action comes to a halt
+            function wwtArrived(obj, eventArgs) {
+                if (bShowCircles) {
+                    // Show that we have arrived by drawing a red circle at the new ra, dec
+                    var circle = createWWTCircle(false, "red", "blue", 3, 1.0, 15, false, eventArgs.get_RA(), eventArgs.get_dec());
+                    wwt.addAnnotation(circle);
+                }
+            }
+
+            function HMS(h, m, s) {
+                h = h + (m / 60) + (s / 3600);
+                var d = h * 15; // Convert from hours to degrees (360/24 = 15)
+                return d;
+            }
+
+            function DMS(d, m, s) {
+                if (d < 0) {
+                    m = -m;
+                    s = -s;
+                }
+                d = d + (m / 60) + (s / 3600);
+                return d;
+            }
+
+            function showRA() {
+                alert(wwt.getRA());
+            }
+
+            function showDec() {
+                alert(wwt.getDec());
+            }
+            // The wwtReady function is called by the WWT Web Control software
+            // This function sets up the wwt object, and the initial defaults
+            function wwtReady() {
+                wwt.gotoRaDecZoom(330.5358, 19.94, 0.5, true);
+setOpacity("both");
+                wwt.settings.set_showCrosshairs(bShowCrosshairs);
+                wwt.settings.set_showConstellationFigures(bShowFigures);
+                wwt.hideUI(!bShowUI);
+                wwt.settings.set_showConstellationBoundries(true);
+                
+                wwt.addAnnotation(star1); //top left star
+                wwt.addAnnotation(star2); //top right star
+                wwt.addAnnotation(star3); //bottom star
+                
+                wwt.addAnnotation(planet1); //top left planet
+                wwt.addAnnotation(planet2); //top right planet
+                wwt.addAnnotation(planet3); //bottom planet
+           
+            }
+        </script>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+<link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+    
+    <body onload="initialize()">
+        <!-- The body section creates a table with two columns. The first contains the -->
+        <!-- canvas object that the WWT web client uses as the render target. And the second a table within-->
+        <!-- the table, containing some buttons and checkboxes.-->
+        <table>
+            <tr>
+                <td>
+                    <div id="WorldWideTelescopeControlHost">
+                        <div id="WWTCanvas" style="width: 2000px; height: 1080px; border-style: none; border-width: 0px;top:0; bottom:0; left:0; right:0;"></div>
+                    </div>
+                </td>
+                <td>
+                  <table border="0" class="mainConsole" style="right: 50px;">
+                        <tr>
+                            <th colspan="2">
+                                <img src="http://i.imgur.com/xrAOfDT.png" height="100"/>
+                          </th></tr>
+                                <tr>
+                                    <td>
+                                        <input type="image" id="play" value="Play" src="http://i62.tinypic.com/28sr8js.png" onclick="setTrue(); play1();" style="width: 40px; height: 40px" />
+                                        <input type="image" id="pause" value="Pause" src="http://i62.tinypic.com/10r0102.png" onclick="setFalse();" style="width: 40px; height: 40px" />
+</td>
+                                </tr>
+                    </table>
+                  <table border="0" class="tiltConsole" style="right: 50px;">
+                        <tr>
+                            <p>&nbsp</p>
+                            <td>
+                                <input type="button" class="button" id="preset1" value="HD 209458 b" style="margin-top: 20px;" onclick="presetData('HD209458b')" />
+                              <input type="button" class="button" id="preset2" value="Earth" style="margin-top: 20px;" onclick="presetData('Earth')" />
+                              <input type="button" class="button" id="preset3" value="Default" style="margin-top: 20px;" onclick="presetData('Default')" />
+                              <tr>
+                                <td>
+                                  <p>Note: The size of the Earth in the Earth view is not to scale.</p>
+                                </td>
+                              </tr>
+                          <tr>
+                            <td colspan="2">
+                                <img src="http://i.imgur.com/BnpCHK2.png" height="20" />
+                            </td></tr>
+                        
+                    </table>
+                          <table border="0" class="viewConsole" style="right: 50px;">
+                        <tr>
+                        <th>
+
+                            <input type="button" class="button" id="TopLeft" value="Front View" onclick="goToView('TopLeft')" />
+                            <input type="button" class="button" id="TopRight" value="Top View" onclick="goToView('TopRight')" />
+                            <input type="button" class="button" id="TopBoth" value="Front and Top Views" onclick="goToView('TopBoth')" />
+                        </th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <img src="http://i.imgur.com/Iado9o4.png" height="20" />
+                            </td>
+                        </tr>
+                    </table>
+                          <table border="0" class="infoConsole" style="right: 50px;">
+                        <tr>
+                            <td style="color:white">
+                                <p>Since planets are too small to directly observe most of the time, scientists must use other methods to detect them. One such method is the transit method, where scientists observe the decreases in perceived light coming from a star caused by the planet blocking the star's light. Check out different views of the planet's orbit to find out when the star's light would be blocked by the planet.</p>
+                                <p>&nbsp</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="http://i.imgur.com/AkGTLYD.png" height="20" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <div id="ViewName" class="label" style="margin-top: 5px; margin-left: 5px; position: absolute; font-size: 48pt; font-family: Verdana, Geneva, sans-serif;">Front and Top Views</div>
+              <div id="Angle" class="notangle" style="bottom: 90px; margin-left: 15px; position: absolute; font-size: 100pt;"></div>
+            </tr>
+              <tr>
+                <div class="bottombar" style="width: 2000px; height: 40px; position: absolute; bottom: 15px; left: 0px; right: 0px;">
+                  <img src="http://i.imgur.com/RceTgF0.png" height="30" style="position: absolute; margin-left: -750px; margin-top: 5px"/>
+                
+                   <input type="image" id="tiltup" src="http://s1.postimg.org/vzge893qn/Uparrow_1.png" onclick="tiltUpButton()" style="width: 40px; height: 40px; position: absolute; margin-left: -670px;margin-top: -10px" />
+                                <input type="image" id="tiltdown" src="http://s2.postimg.org/d6idtm0op/Downarrow_1.png" onclick="tiltDownButton()" style="width: 40px; height: 40px; position: absolute; margin-left: -615px; margin-top: -10px" />
+                  
+                  
+                  <img src="http://i.imgur.com/YljOHPo.png" height="30" style="position: absolute; margin-left: -450px; margin-top: 5px"/>
+                  <div id="size-slider" class="slider"style="width: 210px; margin-top: 13px; margin-left: 670px; position: absolute;"></div>
+
+                  <img src="http://i.imgur.com/gBfeqWN.png" style="margin-left: -10px; margin-top: 5; position: absolute;" height="30"/> <!-- orbit -->
+                  <img src="http://i.imgur.com/R2Mi87V.png" style="margin-left: 110px; margin-top: 0; position: absolute;" height="40"/> <!-- star -->
+                  <img src="http://i.imgur.com/l84YMOu.png" style="margin-left: 200px; margin-top: 3px; position: absolute;" height="35"/> <!-- planet -->
+                  <div id="slider" class="slider"style="width: 210px; margin-top: 13px; margin-left: 1200px; position: absolute;"></div> <!-- slider -->
+                  
+                  <input type="button" class="button" id="random" value="Randomize" onclick="randomize();" style="margin-left: 630px; position: absolute"/>
+                  
+                  
+                  
+                  </tr></div>
+              </tr>
+              <h1 style="position: absolute; right: 50px; margin-top: 10px; font-size: 20px">Note: Objects are not to scale in the default view.
+                  </h1>
+        </table>
+
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>

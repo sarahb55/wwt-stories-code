@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Kinect with WWT</title>
+	<link rel="stylesheet" href="../webfontkit/stylesheet.css" type="text/css" charset="utf-8" />
+    <link href="../stories.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="black">
+<div id="wrapper">
+<div style="background-image:url(background.jpg);width:1024px;height:768px;bgcolor=black;">
+<img src="../story_banner.png"/>
+<a href="../index.html"><img src="../home.png" style="position:absolute;left:980px;top:20px" title="Back to list of stories"/></a>
+   <h1 style="position:absolute;left:10px;top:60px" >Kinect with WWT</h1>
+   
+<div id="pict" style="position:absolute;left:10px;top:140px" ><b>Take A Look</b>: <a href="http://tinyurl.com/wwt-kinect" target="_blank">http://tinyurl.com/wwt-kinect</a>
+    
+    
+    
+  
+</body>
+</html>

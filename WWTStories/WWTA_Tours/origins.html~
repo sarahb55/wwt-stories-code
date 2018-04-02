@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>WWT Tours by 6th Graders</title>
+	<meta name="generator" content="BBEdit 11.0" />
+	<link rel="stylesheet" href="../webfontkit/stylesheet.css" type="text/css" charset="utf-8" />
+    <link href="../stories.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="wrapper3">
+<div id="slidesmall">
+
+<img src="bartley_students.jpg" alt="Bartley and her 6th grade students" width="400px" style="position:absolute;left:150px;top:30px" style="display:inline"/>
+</div>
+
+
+<!--div id="slidesmall" style="position:absolute;left:25px;top:310px">
+Here’s a story of WWT Ambassadors joining forces with an innovative classroom teacher to update project-based-learning.  
+</div-->
+<br/><br/>
+<p class="css-typing">
+<div id="slidesmall" style="position:absolute;left:25px;top:370px">
+In spring 2010, 6th grade science teacher Michelle Bartley integrated WWT tour-making into a six-week Astronomy unit with her students.  Students proposed their own topics to research and worked in small groups to create multi-media presentations about what they learned, using WWT.  This was quite a change from the basic Powerpoint presentations created in years past!
+</div>
+</p>
+</div>
+
+
+
+</div>
+</body>
+</html>

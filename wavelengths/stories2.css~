@@ -1,0 +1,795 @@
+/*
+  The star selector is used to target every element.  This is
+  often used to zero out the margin and padding.  This
+  creates some common ground from which to begin.
+*/
+* {
+}
+/*
+  body is used to provide basic page styles meant to be inherited
+  by nearly all of the page’s children: font-face, size, alignment,
+  etc. Some use the html selector, but I have never done that so
+  it’s not listed.
+*/
+
+
+
+input { 
+	color: #CCFF00; 
+	font-family: 'syncopateregular', Arial, sans-serif;
+	padding: 10px 10px 10px;;
+    background: #333366;
+    font-size: 14px;
+    border-radius: 10px;
+    width: relative;
+    border: solid 3px #000;
+     width: 8em;  height: 3em;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 4px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0.2, 0.2);
+     -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+   
+}
+
+input:hover, .button-link:focus {
+    background: #20B2AA;
+    border: solid 1px #2A4E77;
+    text-decoration: none;
+}
+
+button:active {
+    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+    background: white;
+    border: solid 3px #2A4E77;
+    color: #000; 
+    position:absolute;left:40px;
+}
+
+button:visited {
+    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+    background: white;
+    border: solid 1px #2A4E77;
+    color: #000; 
+    position:absolute;left:40px;
+}
+
+
+#WWTCanvas, #WorldWideTelescopeControlHost{
+  border-width: 5px;
+  color: white;
+  
+  border-radius: 12px;
+	border-style: solid;
+	  -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+
+/*
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+    border-radius: 12px;
+
+  -moz-box-shadow: 4px 4px 14px #000;
+  -webkit-box-shadow: 4px 4px 14px #000;
+  box-shadow: 4px 4px 14px #000;
+
+  -moz-transform:rotate(20deg);
+  -webkit-transform:rotate(20deg);
+  -o-transform:rotate(20deg);
+  -ms-transform:rotate(20deg);*/
+
+}
+body {
+ 
+   font-family: Calibri,"Gill Sans","Gill Sans MT","Myriad Pro",Myriad,Frutiger,"Frutiger Linotype",Univers,"DejaVu Sans Condensed","Liberation Sans","Nimbus Sans L",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+}  
+
+
+/*
+  The wrapper div can be used to contain the page itself. It can
+  also redefine some characteristics inherited from the body. It
+  is high on this page as it’ll contain everything else used.
+*/
+#wrapper {
+
+ 
+    display: inline-block;
+    margin:0px 0px; padding:0px;
+    text-align: center;
+    width:1024px;height:768px;	
+    margin-left:                       -512px;
+    margin-top:                        0px;
+    position:                        absolute;
+    height:                             768px;
+    width:                             1024px;
+    left:                                 50%;
+    top:                                  0px;
+    background-color: black;
+    background: url(cockpit.jpg) no-repeat;
+
+
+
+}
+
+#wrapper2 {
+
+ 
+    display: inline-block;
+    margin:0px 0px; padding:0px;
+    text-align: center;
+    width:1024px;height:768px;	
+    margin-left:                       -512px;
+    margin-top:                        0px;
+    position:                        absolute;
+    width:                             1024px;
+    height: 1350px;
+
+    left:                                 50%;
+    top:                                  0px;
+    background-color: #000033;
+
+
+
+
+}
+
+#wrapper3 {
+
+ 
+    display: inline-block;
+    margin:10px 10px;
+    text-align: left;
+    width:700px;height:525px;	
+    margin-left:                       -350px;
+    margin-top:                        0px;
+    position:                        absolute;
+    width:                             700px;
+    height: 525px;
+
+    left:                                 50%;
+    top:                                  0px;
+    
+
+
+
+
+}
+
+
+
+/*
+  Here are the headings. These may be redefined throughout the
+  document as needed, if needed. This is especially true of the h1
+  element as it may have special usage as the main page heading,
+  and maybe as a link.
+*/
+ h1 {
+	color:#FFFFFF; 
+	font-family: 'syncopateregular', Calibri,"Gill Sans","Gill Sans MT","Myriad Pro",Myriad,Frutiger,"Frutiger Linotype",Univers,"DejaVu Sans Condensed","Liberation Sans","Nimbus Sans L",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	text-shadow: 0 -2px 0 rgba(0, 0, 0, 0.4);
+	font-size: 40px;
+	text-align: center;
+	
+}
+
+#homeb{
+	 position:absolute;
+	 left:900px;
+	 top:20px;
+};
+/*
+  A page without paragraphs would be pretty unusual. Let’s make
+  sure the p element is included. This, too, may be redefined
+  throughout the document  as needed, if needed.
+*/
+p {
+	font-family: Calibri,"Gill Sans","Gill Sans MT","Myriad Pro",Myriad,Frutiger,"Frutiger Linotype",Univers,"DejaVu Sans Condensed","Liberation Sans","Nimbus Sans L",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: white; 
+	font-size: 20px;
+	line-height: 100%;;
+	
+}
+
+#slide {
+	color: white; 
+	font-size: 30px;
+	line-height: 100%;
+	font-style: normal;
+	font-family: Calibri,"Gill Sans","Gill Sans MT","Myriad Pro",Myriad,Frutiger,"Frutiger Linotype",Univers,"DejaVu Sans Condensed","Liberation Sans","Nimbus Sans L",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	text-align: left;
+	margin:30px 10px; padding:10px;
+	background-color: transparent; 
+
+}
+
+#slidesmall {
+	color: white; 
+	font-size: 20px;
+	line-height: 100%;
+	font-style: normal;
+	font-family: Calibri,"Gill Sans","Gill Sans MT","Myriad Pro",Myriad,Frutiger,"Frutiger Linotype",Univers,"DejaVu Sans Condensed","Liberation Sans","Nimbus Sans L",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	text-align: left;
+	font-weight: regular;
+	background-color: transparent; 
+	padding: 25px;
+
+}
+
+#slidesmall a {
+	color: #95B9C7; 
+	font-family: Calibri,"Gill Sans","Gill Sans MT","Myriad Pro",Myriad,Frutiger,"Frutiger Linotype",Univers,"DejaVu Sans Condensed","Liberation Sans","Nimbus Sans L",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+		font-size: 20px;
+		text-align: left;
+	font-weight: regular;
+	background-color: transparent; 
+
+		
+
+}
+
+#slidesmall a:hover, a:focus, a:active {
+	color: white; 
+	font-size: 20px;
+	line-height: 100%;
+	font-style: normal;
+	
+	text-align: left;
+	font-weight: regular;
+	background-color: transparent; 
+
+}
+
+#slidesmall img{
+
+	padding: 0px;
+    border-radius: 15px;
+     border: solid 3px white;
+     vertical-align: center;
+    
+
+
+}
+
+#slidesmall iframe{
+
+	padding: 0px;
+    border-radius: 15px;
+
+    
+    border-radius: 10px;
+    border: solid 5px #000;
+   
+
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 4px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0.2, 0.2);
+    
+
+
+}
+/*
+  Most pages will have links. Let’s style them using a anchor
+  element. Some will write this as a:link. I don’t — I don’t
+  see the need
+*/
+a {
+	font-family:  'syncopateregular', Verdana, Lucida, Arial, sans-serif;
+	color: white; 
+	font-size: 14px;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+	text-decoration: none;
+	text-align: left;
+}
+
+/*
+  Links really should have some interactivity characteristics for
+  accessibility and usability reasons. The a:hover pseudo-class is
+  offered as is a:focus. Internet Explorer (IE) doesn’t support
+  a:focus, but it does use the a:active state so it’s here too.
+*/
+a:hover, a:focus, a:active {
+
+	color: #33CCFF;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+}
+
+/*
+  Focus/active should be different than hover is some regards, such
+  as providing a background color to make it highly visible to
+  keyboard users. Thus, certain focal styles may be redefined.
+*/
+
+a:focus, a:active {
+	
+}
+
+/*
+  In addition to background images, most web pages will offer
+  embedded images (img), so I will offer them here. Mostly this
+  is used to remove borders and text-decoration
+  (if the image is a link).
+*/
+img {
+float: center;
+	
+}
+
+img:hover {
+
+}
+
+td{
+	color: white;
+	vertical-align: top;
+	padding: 15px;
+	
+
+
+};
+
+table.center {
+    margin-left:50px; 
+    margin-right:50px;
+  }
+
+#storylink {
+	
+	color:  white;
+        font-size: 18px;
+        text-shadow: 0 -2px 0 rgba(0, 0, 0, 0.4);
+        font-family:  'syncopateregular',Verdana, Lucida, Arial, sans-serif;
+        text-align: center;
+	 position: absolute;
+        top: -20px;
+	position: relative;
+        text-align: center;
+
+	
+	
+
+}
+
+#pagetitle{
+	        color:  white;
+        font-size: 40px;
+        text-shadow: 0 -2px 0 rgba(0, 0, 0, 0.4);
+        font-family:  'syncopateregular',Verdana, Lucida, Arial, sans-serif;
+        text-align:center;
+	width: 1024px;
+	
+       
+}
+#pict{
+
+	color:  white; 
+	font-size: 18px;
+	text-shadow: 0 -2px 0 rgba(0, 0, 0, 0.4);
+	font-family:  'syncopateregular',Verdana, Lucida, Arial, sans-serif;
+	text-align: center;	
+
+	
+	margin-left: auto;
+    margin-right: auto;
+    height: auto;
+	 
+}
+
+#pict p{
+
+	color:  white; 
+	font-size: 18pt;
+	text-shadow: 0 -2px 0 rgba(0, 0, 0, 0.4);
+	font-family:  'syncopateregular',Verdana, Lucida, Arial, sans-serif;
+	text-align: left;
+	padding: 10px;	
+
+
+	
+	
+	 
+}
+
+#introduction p{
+
+
+	position:absolute;left:500px;top:200px;
+	display:inline; 
+	text-align:right;
+	color:  white; 
+	font-size: 30px;
+	font-weight: light;
+	text-shadow: 0 -2px 0 rgba(0, 0, 0, 0.4);
+	font-family: Calibri,Helvetica,Arial,sans-serif;
+	text-align: right;
+	padding: 20px;	
+	text-shadow: -1px -1px -12px rgba(0, 0, 0, 0.4);
+	line-height: 120%;width:410px;
+
+}
+#pict table{
+
+ 	margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    padding: 15px;
+
+   
+   
+   
+
+}
+
+#pict img{
+
+	padding: 0px;
+   width:240px;
+    border: solid 1px #ccc;
+}
+
+#mstories{
+	font-family:  Calibri,"Gill Sans","Gill Sans MT","Myriad Pro",Myriad,Frutiger,"Frutiger Linotype",Univers,"DejaVu Sans Condensed","Liberation Sans","Nimbus Sans L",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	text-align: center;
+	
+	padding: 0px;
+    margin: 0px;
+   	margin-left: 10;
+    margin-right: 0;
+    width:100px;
+    height=120px;
+
+}
+
+#mstories a{
+	font-family:  Calibri,"Gill Sans","Gill Sans MT","Myriad Pro",Myriad,Frutiger,"Frutiger Linotype",Univers,"DejaVu Sans Condensed","Liberation Sans","Nimbus Sans L",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+
+}
+
+#mstories img{
+	width:50px;
+	padding: 0px;
+    margin: 0px;
+   	margin-left: 10;
+    margin-right: 0;
+    width:100px;
+    height:70px;
+
+    
+}
+
+#mstoriesinner{
+
+	position: relative;
+	top: 2.0em;
+    left: .1em;
+	color:  white; 
+	font-size: 11px;
+	background: rgba(0, 0, 0, 0.4);
+	 width:100px;
+	 height:20px;
+	 font-family: Arial;
+	 font-weight: regular;
+
+}
+
+
+#mstories h4{
+
+
+}
+
+
+
+#mstories2 img{
+
+	padding: 0px;
+    margin: 0px;
+   	margin-left: 10;
+    margin-right: 0;
+    width:120px;
+    height:90px;
+}
+
+#pict2 img{
+
+	padding: 0px;
+   width:300px;
+   
+    border: solid 1px #ccc;
+}
+
+
+
+#pict h1 {
+	color:white; 
+	font-family: 'syncopateregular', Calibri,"Gill Sans","Gill Sans MT","Myriad Pro",Myriad,Frutiger,"Frutiger Linotype",Univers,"DejaVu Sans Condensed","Liberation Sans","Nimbus Sans L",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 30px;
+	text-align:center;
+
+}
+
+
+#pict td{
+
+	color:  white; 
+	font-size: 20px;
+	text-shadow: 0 -2px 0 rgba(0, 0, 0, 0.4);
+	font-family:  'syncopateregular',Verdana, Lucida, Arial, sans-serif;
+	text-align: center;
+
+
+    margin: 5px;
+   	margin-left: 2px;
+    margin-right: 2px;
+     
+
+	
+}
+
+#pict th{
+
+	color:  white; 
+	font-size: 22px;
+	text-shadow: 0 -2px 0 rgba(0, 0, 0, 0.4);
+	font-family:  'syncopateregular',Verdana, Lucida, Arial, sans-serif;
+	text-align: center;
+	width: 200px;
+
+    padding: 3px;
+    margin: 15px;
+   margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+  
+    background-color: #2879a4;
+
+	
+}
+
+/* Container is necessary because td cannot be positioned relative */
+#pict td .tooltipcontainer {
+    position: relative;
+}
+#pict td .tooltip {
+    display: none;
+    position: absolute;
+    width: 220px;
+    z-index:99;
+    /* More positioning, heigh, width, etc */
+}
+#pict td a:hover .tooltip {
+    display: block;
+    font-family:  Calibri,"Gill Sans","Gill Sans MT","Myriad Pro",Myriad,Frutiger,"Frutiger Linotype",Univers,"DejaVu Sans Condensed","Liberation Sans","Nimbus Sans L",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:white;
+    font-weight: light;
+    background-color: black;
+   	font-size: 14px;
+    padding: 15px;
+    border-radius: 5px;
+    border: solid 1px #003366;
+    z-index:99;
+  
+  }
+  
+#pict td .tooltipright2 {
+    display: none;
+    position: absolute;
+    width: 220px;
+    left:723px;
+    
+    /* More positioning, heigh, width, etc */
+}
+
+#pict td .tooltipright {
+    display: none;
+    position: absolute;
+    width: 220px;
+    left:663px;
+    /* More positioning, heigh, width, etc */
+}
+#pict td a:hover .tooltipright {
+    display: block;
+    font-family:  Calibri,"Gill Sans","Gill Sans MT","Myriad Pro",Myriad,Frutiger,"Frutiger Linotype",Univers,"DejaVu Sans Condensed","Liberation Sans","Nimbus Sans L",Tah
+oma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:white;
+    font-weight: light;
+    background-color: black;
+        font-size: 14px;
+    padding:10px;
+    border-radius: 5px;
+    border: solid 1px #003366;
+     z-index:99;
+
+  }
+  
+  #pict td a:hover .tooltipright2 {
+    display: block;
+    font-family:  Calibri,"Gill Sans","Gill Sans MT","Myriad Pro",Myriad,Frutiger,"Frutiger Linotype",Univers,"DejaVu Sans Condensed","Liberation Sans","Nimbus Sans L",Tah
+oma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:white;
+    font-weight: light;
+    background-color: black;
+        font-size: 14px;
+    padding:10px;
+    border-radius: 5px;
+    border: solid 1px #003366;
+     z-index:99;
+
+  }
+
+
+
+/*
+  I’m not going to add the table element as its purpose is quite
+  specific and not used very often by the typical CSS developer
+  (unless they are offering tabular data). This is also the case
+  for dfn (definition), code, pre (preserve [whitespace]),
+  kbd (keyboard), ins (insert),  del (delete),
+  i (italic [presentational]), and b (bold [presentational]).
+  But you will likely want to use those I am offering — though
+  you may not style them all.
+*/
+
+small {
+}
+
+abbr, acronym { /* Also see .abbr class for a span used by IE */
+}
+
+blockquote {
+}
+
+cite {
+}
+
+em {
+}
+
+strong {
+}
+
+
+
+/*
+  Offering some form styles, since most sites have a form or two,
+  are really quite common. And offering focal styles is quite
+  useful to accessibility for those using keyboards. But please
+  know that neither the :focus or :active pseudo classes (on
+  elements other than anchors) are available to IE user so
+  JavaScript will be needed to make it work. Since not everyone
+  has JavaScript enabled, it is important that the form’s
+  contrast is usable without script support.
+  Since submit- and reset-type inputs are affected by
+  the text-type input styles, you may want to offer an
+  input.button class. The same applies to checkboxes and radio
+  buttons.
+*/
+
+form {
+}
+
+fieldset {
+}
+
+legend {
+}
+
+label {
+}
+
+input {
+}
+
+select {
+}
+
+option {
+}
+
+textarea {
+}
+
+input:focus, select:focus, option:focus, textarea:focus {
+}
+
+Some typical IDs
+
+/*
+  Call them what you like, but these are some really common IDs
+  you may use yourself. I try to make the names as informative as
+  possible so as to not confuse myself down the road. Using common
+  names like this offers insight to any editor later on. Note that
+  the “wrapper” ID is covered above as it needs
+  to be high up in the cascade.
+*/
+
+#header { /* may also be masthead, banner, etc., and may include
+                                     the h1 element */
+}
+
+#content {
+}
+
+#sidebar {
+}
+
+#navigation {
+}
+
+#footer {
+	color: white;
+	position: absolute;
+	text-align: center;
+}
+
+
+/*
+  Just like the IDs above, I use these on nearly every site I make.
+  These should be pretty self-explanatory with exception to offset
+  which I’ve filled in. It’s used in lieu of display : none;
+  (.hidden class) so as to remove items from view while still
+  making them available to other users. If anchors,  you can use
+  a:focus/a:active to bring them back in view. Useful for hidden 
+
+  skip/jump links, etc.
+*/
+
+.bold {
+}
+
+.italic {
+}
+
+.hidden {
+}
+
+.offset { /* would be position : abosolute; top : -9000px;
+                                 left : -9000px; */
+}
+
+.highlight { /* useful for adding spot colors */
+}
+
+.tiny { /* use small element to make small, but for styled-only
+                               small text, this is class. */
+}
+
+.error {
+}
+
+.abbr { /* use with a span to style abbr for IE as abbr isn’t
+                                supported */
+}
+
+.css-typing
+{
+    width: 30em;
+    white-space:nowrap;
+    overflow:hidden;
+    -webkit-animation: type 5s steps(50, end);
+    animation: type 5s steps(50, end);
+    color: white;
+}
+
+@keyframes type{
+    from { width: 0; }
+}
+
+@-webkit-keyframes type{
+    from { width: 0; }
+}

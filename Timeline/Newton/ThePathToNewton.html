@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Map Resize Example</title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="ImageMapResize-master/Source/jquery.ImageMapResize.js" type="text/javascript"></script> 
+
+    <style type="text/css">
+      #divImgContainer img{
+        width:100%;
+      }
+
+    </style>
+  </head>
+<body>
+
+<div id="container">
+      <header><h1>Image Map Resize Example</h1></header>
+      <div id="divImgContainer">
+        <script type="text/javascript">
+          $(document).ready(function () {
+            $('#GraffleExport').ImageMapResize({ origImageWidth: "12236" });
+          });
+        </script>
+        <map name="GraffleExport">
+	<area shape=rect coords="11366,2182,11588,2460" href="https://en.wikipedia.org/wiki/Edmond_Halley">
+	<area shape=rect coords="11061,1627,11283,1904" href="https://en.wikipedia.org/wiki/Isaac_Newton">
+	<area shape=rect coords="10495,2015,10718,2293" href="https://en.wikipedia.org/wiki/Galileo_Galilei">
+	<area shape=rect coords="9755,1571,9977,1849" href="https://en.wikipedia.org/wiki/Galileo_Galilei">
+	<area shape=rect coords="8366,1293,8588,1571" href="https://en.wikipedia.org/wiki/Nicolaus_Copernicus">
+	<area shape=rect coords="8752,1432,8974,1710" href="https://en.wikipedia.org/wiki/Tycho_Brahe">
+	<area shape=rect coords="8755,2015,8977,2293" href="https://en.wikipedia.org/wiki/Johannes_Kepler">
+	<area shape=rect coords="6145,1988,6368,2265" href="https://en.wikipedia.org/wiki/Ibn_al-Haytham">
+	<area shape=rect coords="7311,2804,7533,3082" href="https://en.wikipedia.org/wiki/Ibn_al-Haytham">
+	<area shape=rect coords="5199,2349,5422,2627" href="https://en.wikipedia.org/wiki/Var%C4%81hamihira">
+	<area shape=rect coords="4866,1904,5088,2182" href="https://en.wikipedia.org/wiki/Aryabhata">
+	<area shape=rect coords="5533,1793,5755,2071" href="https://en.wikipedia.org/wiki/Brahmagupta">
+	<area shape=rect coords="7755,1710,7977,1988" href="https://en.wikipedia.org/wiki/Nasir_al-Din_al-Tusi">
+	<area shape=rect coords="6977,2182,7199,2460" href="https://en.wikipedia.org/wiki/Ibn_al-Haytham">
+	<area shape=rect coords="6449,1349,6672,1627" href="https://en.wikipedia.org/wiki/Al-Battani">
+	<area shape=rect coords="2644,2654,2883,2960" href="https://en.wikipedia.org/wiki/Anaxagoras">
+	<area shape=rect coords="1894,1154,2116,1432" href="https://en.wikipedia.org/wiki/Thales_of_Miletus">
+	<area shape=rect coords="2062,2238,2284,2515" href="https://en.wikipedia.org/wiki/Anaximander">
+	<area shape=rect coords="2505,1682,2727,1960" href="https://en.wikipedia.org/wiki/Pythagoras">
+	<area shape=rect coords="4227,1627,4449,1904" href="https://en.wikipedia.org/wiki/Ptolemy">
+	<area shape=rect coords="3616,2460,3838,2738" href="https://en.wikipedia.org/wiki/Aristarchus_of_Samos">
+	<area shape=rect coords="3172,1210,3394,1488" href="https://en.wikipedia.org/wiki/Plato">
+	<area shape=rect coords="3449,1321,3672,1599" href="https://en.wikipedia.org/wiki/Aristotle">
+	<area shape=rect coords="2894,1099,3116,1377" href="https://en.wikipedia.org/wiki/Socrates">
+	<area shape=rect coords="866,1785,1144,2125" href="https://en.wikipedia.org/wiki/History_of_astronomy#Mesopotamia">
+</map>
+<img border=0 src="The%20Path%20to%20Newton.jpg" usemap="#GraffleExport">
+      </div>
+    </div>
+
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="imageMapResizer.min.js"></script>
+	<script type="text/javascript">
+
+		$('map').imageMapResize();
+
+	</script>
+</body>
+</html>

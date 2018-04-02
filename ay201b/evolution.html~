@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Grad Student Learning Modules</title>
+	<meta name="generator" content="BBEdit 11.0" />
+	<link rel="stylesheet" href="../webfontkit/stylesheet.css" type="text/css" charset="utf-8" />
+    <link href="../stories.css" rel="stylesheet" type="text/css">
+</head>
+<div id="wrapper 3">
+<div id="slidesmall">
+<img src="chen-wwt-screenshot.png" alt="ay201b" width="600px" style="position:absolute;left:50px;top:30px" style="display:inline"/>
+</div>
+
+
+<div id="slidesmall" style="position: absolute; top: 260px; left: 40px;width:260px;color:white;">
+Hope Chen's WWT visualization of bubbles in the Milky Way 
+</div>
+
+<div id="slidesmall" style="position: absolute; top: 300px; left: 0px;width:670px;color:black;">
+
+<body bgcolor="black">
+<div id="slidesmall" >
+<p>
+Students are tasked with using new technology to create a module covering a topic in Star Formation & ISM.  Choices include WorldWide Telescope, Wolfram Demonstrations, Javascript, and Python.  Four of the students choose to use WWT to develop their modules</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Folder MSRCommunityId="0" MSRComponentId="0" Permission="0" Name="Glimpse 360" Group="Explorer" Searchable="False" Type="Earth">
+  <VersionDependent>false</VersionDependent>
+  <Place MSRCommunityId="0" MSRComponentId="0" Permission="0" Name="GLIMPSE 360" DataSetType="Sky" RA="17.75" Dec="-28.9" Constellation="SGR" Classification="Galactic" Magnitude="0" Distance="0" ZoomLevel="0" Rotation="0" Angle="0" DomeAlt="0" DomeAz="0" Opacity="100" AngularSize="0">
+    <Target>Undefined</Target>
+    <ForegroundImageSet>
+      <ImageSet MSRCommunityId="0" MSRComponentId="0" Permission="0" Generic="False" DataSetType="Sky" BandPass="IR" Url="http://cdn.worldwidetelescope.org/wwtweb/g360.aspx?q={1},{2},{3}" TileLevels="12" WidthFactor="1" Sparse="False" Rotation="0" QuadTreeMap="" Projection="Toast" Name="GLIMPSE 360" FileType=".png" CenterY="0" CenterX="0" BottomsUp="False" StockSet="False" ElevationModel="False" OffsetX="0" OffsetY="0" BaseTileLevel="0" BaseDegreesPerTile="180" MeanRadius="0">
+        <Credits>NASA/JPL-Caltech/Univ. of Wisconsin. The GLIMPSE 360 survey was performed using the Spitzer Space Telescope.</Credits>
+        <CreditsUrl>http://www.astro.wisc.edu/sirtf/</CreditsUrl>
+        <ThumbnailUrl>http://www.worldwidetelescope.org/wwtweb/thumbnail.aspx?name=glimpsetn</ThumbnailUrl>
+      </ImageSet>
+    </ForegroundImageSet>
+  </Place>
+</Folder>

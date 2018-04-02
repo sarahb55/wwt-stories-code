@@ -1,0 +1,241 @@
+<!DOCTYPE html >
+<html>
+<head>
+     <meta charset="utf-8" http-equiv="X-UA-Compatible" content="chrome=1, IE=edge"/>
+     <title>Crab Nebula Prototype</title>
+    
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="../../webfontkit/stylesheet.css" type="text/css" charset="utf-8" />
+<link href="stories2.css" rel="stylesheet" type="text/css">
+  
+ <script>
+
+</script>
+    <script src="http://www.worldwidetelescope.org/scripts/wwtsdk.aspx"></script>
+        
+    <script>
+         // declare global Worldwide Telescope object
+         var wwt;
+        var circle;
+         // Create variables to hold the changeable settings
+        var bShowCrosshairs = true;
+        var bShowUI = true;
+        var bShowFigures = true;
+        var circleCount = 0;
+        var curForeground;
+        var curBackground = "Crab Nebula";
+         // This function initializes the wwt object and once it is done 
+        // it fires the wwtReady event
+         function initialize() {
+            wwt = wwtlib.WWTControl.initControl("WWTCanvas");
+            wwt.add_ready(wwtReady);
+         // This ensures that events that would have fired before we registered them get fired
+            wwt.endInit();
+        }
+         // This function is where you would put your custom code for WWT
+        // following the initForWwt() call
+         function wwtReady() {
+            initForWwt();
+ 
+        }
+         // This is the initialization for Worldwide Telescope
+         function initForWwt() {
+            wwt.loadImageCollection("CrabNebula.wtml");
+             // add any wwt object settings changes here
+            wwt.settings.set_showCrosshairs(bShowCrosshairs);
+            wwt.settings.set_showConstellationFigures(bShowFigures);
+            wwt.hideUI(!bShowUI);
+            showFov();
+             wwt.gotoRaDecZoom(HMS(5, 34, 32), DMS(22, 1, 00), 0.2, false);
+        }
+         // A simple function to toggle the settings
+        // This function is called from the checkbox entries setup in the html table
+         function toggleSetting(text) {
+            switch (text) {
+                case 'ShowUI':
+                    bShowUI = !bShowUI;
+                    wwt.hideUI(!bShowUI);
+                    wwt.set_showExplorerUI(bShowUI);
+                    break;
+                 case 'ShowCrosshairs':
+                    bShowCrosshairs = !bShowCrosshairs;
+                    wwt.settings.set_showCrosshairs(bShowCrosshairs);
+                    break;
+                 case 'ShowFigures':
+                    bShowFigures = !bShowFigures;
+                    wwt.settings.set_showConstellationFigures(bShowFigures);
+                    break;
+            }
+        }
+        
+$(function() {
+	 $("#slider-opacity").slider({
+        min: 0,
+        max: 100,
+        value: 50,
+        slide: function(event, ui) {
+            wwt.setForegroundOpacity(ui.value);
+
+        }
+    });
+
+
+});  
+
+
+
+    
+ function HMS(h, m, s) {
+	 h = h + (m/60) + (s/3600);
+	 var d = h * 15; // Convert from hours to degrees (360/24 = 15)
+	 return d;
+ }
+ function DMS(d, m, s) {
+	 if(d < 0) { 
+		 m = -m; 
+		 s = -s; 
+	 }
+	 d = d + (m/60) + (s/3600);
+	 return d;
+ }
+ 
+  function createWWTCircle(fill, lineColor, fillColor, lineWidth, opacity, radius, skyRelative, ra, dec) {
+        var circle = wwt.createCircle(fill);
+        circleCount++;
+        circle.set_id("Circle" + circleCount.toString());
+        circle.set_lineColor(lineColor);
+        circle.set_fillColor(fillColor);
+        circle.set_lineWidth(lineWidth);
+        circle.set_opacity(opacity);
+        circle.set_radius(radius);
+        circle.set_skyRelative(skyRelative);
+        circle.setCenter(ra, dec);
+   
+        return circle;
+    }
+    
+    
+         // A function to change the view to different constellations
+        // Note the fov set to 60 (maximum view distance)
+        // This function is called from the button entries in the html table
+ 
+        function GotoConstellation(text) {
+        
+            
+             switch (text) {
+                case 'Crab Nebula':
+                 circle = createWWTCircle(false, "blue", "blue", 1, 1.0, 250, true, HMS(5, 34, 32), DMS(22, 1, 00));
+            		wwt.addAnnotation(circle);
+                    wwt.gotoRaDecZoom(HMS(5, 34, 32), DMS(22, 1, 00), 0.2, false);
+                 	
+           			 break;
+           		
+                case 'Crab Nebula: Hubble':	      
+                	 
+                	wwt.setForegroundImageByName("Crab Nebula : Dead Star Creates Celestial Havoc");
+                	 wwt.gotoRaDecZoom(HMS(5, 34, 32), DMS(22, 1, 00), 0.2, false);
+                    break;
+                 case 'Crab Nebula: Chandra':	
+                 
+                	wwt.setForegroundImageByName("Crab Nebula");
+
+     				
+                	 wwt.gotoRaDecZoom(HMS(5, 34, 32), DMS(22, 1, 00), 0.2, false);
+                    break;
+                case 'Crab Nebula: M1':	
+  
+                	wwt.setForegroundImageByName("M1");
+                	wwt.gotoRaDecZoom(HMS(5, 34, 32), DMS(22, 1, 00), 0.2, false);
+                    break;
+                case 'Combined':
+                	wwt.setForegroundImageByName("Combined X-Ray and Optical Images of the Crab Nebula");
+                  wwt.gotoRaDecZoom(HMS(5, 34, 32), DMS(22, 1, 00), 0.2, false);
+                
+                    break;
+              
+                
+            }
+        }
+        
+        
+    function FovInc() {
+        var newFov = 1.1 * wwt.get_fov();
+        if (newFov <= 60) {
+            wwt.gotoRaDecZoom(HMS(5, 34, 32), DMS(22, 1, 00), newFov, false);
+        }
+        showFov();
+    }
+     function FovDec() {
+        var newFov = wwt.get_fov() / 1.1;
+        if (wwt.get_fov() >= 0.00022910934437488727) {
+            wwt.gotoRaDecZoom(HMS(5, 34, 32), DMS(22, 1, 00), newFov, false);
+        }
+        showFov();
+    }
+    
+    function showFov() {
+        document.getElementById("currentfov").value = wwt.get_fov();
+    }
+     function wwtArrived() {
+        showFov();
+    }
+     </script>
+ </head>
+ <body onload="initialize()" style="background-color: black;">
+ <!-- The body section creates a table with two columns. The first contains the -->
+<!-- canvas tag that is the WWT web client target. And the second a table within-->
+<!-- the table, containing some buttons and checkboxes.-->
+<div id="wrapper">
+        <div id="WorldWideTelescopeControlHost">
+        <div id="WWTCanvas" style="width:400px; height:400px; border-style: none; border-width: 0px;position:absolute;top: 100px;
+    left: 310px;"></div>
+     </div>
+     
+     
+<div style="position:absolute;top:200px; left:800px;">
+       <input type="button" id="Crab Nebula" value="Go" onclick="GotoConstellation('Crab Nebula')"/><br/><br/>
+    <input type="button" id="Crab Nebula: Hubble" value="Hubble" onclick="GotoConstellation('Crab Nebula: Hubble')"/>
+  <br/><br/>  <input type="button" id="Crab Nebula: Chandra" value="Chandra" onclick="GotoConstellation('Crab Nebula: Chandra')"/>
+<br/>  <br/>  <input type="button" id="Crab Nebula: M1" value="M1" onclick="GotoConstellation('Crab Nebula: M1')"/><br/>
+<br/>	<input type="button" id="Crab Nebula: Combined" value="Combined" onclick="GotoConstellation('Combined')"/>
+	<br/>
+       
+</div>
+<div id="pict" style="position:absolute;top:100px; left:310px;wid\             
+th:300px;">
+    <input type="button" id="inc" value="+" onclick="FovInc()" style="background:transparent;"/>
+<br/>
+    <input type="button" id="dec" value="—" onclick="FovDec()" style="background:transparent;"/>  
+    <br/>
+
+</div>
+
+
+      <div id="pict" style="position:absolute;top:545px; left:310px;wid\
+th:300px;">0%</div>
+         <div id="slider-opacity" style="position:absolute;top:550px; left:350px;width:300px;">
+ 
+<br/><br/>
+
+</div>
+  <div id="pict" style="position:absolute;top:545px; left:660px;">100%</div>
+
+
+<div id="description" style="position:absolute;top:110px; left:80px;width:170px;">
+<p style="color:#33FF33;">
+<b>Crab Nebula</b>
+<br>
+
+The Crab Nebula is the shattered remnant of a massive star that ended its life in a supernova explosion. Nearly a thousand years old, the supernova was noted in the constellation of Taurus by Chinese astronomers in the year 1054 AD.
+
+
+Image Credit: <a href="http://www.nasa.gov/multimedia/imagegallery/image_feature_567.html" >NASA/JPL-Caltech/R. Gehrz (University of Minnesota)</a>
+</p>
+
+</div>
+</div>
+ </body>
+</html>

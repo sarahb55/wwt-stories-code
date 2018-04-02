@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<Folder MSRCommunityId="0" MSRComponentId="0" Permission="0" Name="milky" Group="Explorer" Searchable="False" Type="Earth">
+  <VersionDependent>false</VersionDependent>
+  <Place MSRCommunityId="0" MSRComponentId="0" Permission="0" Name="WISE All Sky (Infrared)" DataSetType="Sky" RA="0" Dec="0" Constellation="" Classification="Unidentified" Magnitude="0" Distance="0" ZoomLevel="360" Rotation="0" Angle="0" DomeAlt="0" DomeAz="0" Opacity="100" AngularSize="360">
+    <Target>Custom</Target>
+    <ForegroundImageSet>
+      <ImageSet MSRCommunityId="0" MSRComponentId="0" Permission="0" Generic="False" DataSetType="Sky" BandPass="IR" Url="http://www.worldwidetelescope.org/wwtweb/tiles.aspx?q={L},{X},{Y},wise" TileLevels="7" WidthFactor="1" Sparse="False" Rotation="0" QuadTreeMap="" Projection="Toast" Name="WISE All Sky (Infrared)" FileType=".png" CenterY="0" CenterX="0" BottomsUp="False" StockSet="False" ElevationModel="False" OffsetX="0" OffsetY="0" BaseTileLevel="0" BaseDegreesPerTile="180" ReferenceFrame="Sky" MeanRadius="0">
+        <Credits>NASA/JPL-Caltech/UCLA</Credits>
+        <CreditsUrl>http://wise.ssl.berkeley.edu/</CreditsUrl>
+        <ThumbnailUrl>http://www.worldwidetelescope.org/wwtweb/thumbnail.aspx?name=wise</ThumbnailUrl>
+      </ImageSet>
+    </ForegroundImageSet>
+  </Place>
+  <Place MSRCommunityId="0" MSRComponentId="0" Permission="0" Name="WISE All Sky (Infrared)" DataSetType="Sky" RA="0" Dec="0" Constellation="" Classification="Unidentified" Magnitude="0" Distance="0" ZoomLevel="360" Rotation="0" Angle="0" DomeAlt="0" DomeAz="0" Opacity="100" AngularSize="360">
+    <Target>Custom</Target>
+    <ForegroundImageSet>
+      <ImageSet MSRCommunityId="0" MSRComponentId="0" Permission="0" Generic="False" DataSetType="Sky" BandPass="IR" Url="http://www.worldwidetelescope.org/wwtweb/tiles.aspx?q={L},{X},{Y},wise" TileLevels="7" WidthFactor="1" Sparse="False" Rotation="0" QuadTreeMap="" Projection="Toast" Name="WISE All Sky (Infrared)" FileType=".png" CenterY="0" CenterX="0" BottomsUp="False" StockSet="False" ElevationModel="False" OffsetX="0" OffsetY="0" BaseTileLevel="0" BaseDegreesPerTile="180" ReferenceFrame="Sky" MeanRadius="0">
+        <Credits>NASA/JPL-Caltech/UCLA</Credits>
+        <CreditsUrl>http://wise.ssl.berkeley.edu/</CreditsUrl>
+        <ThumbnailUrl>http://www.worldwidetelescope.org/wwtweb/thumbnail.aspx?name=wise</ThumbnailUrl>
+      </ImageSet>
+    </ForegroundImageSet>
+  </Place>
+  <Place MSRCommunityId="0" MSRComponentId="0" Permission="0" Name="2Mass: Imagery (Infrared)" DataSetType="Sky" RA="0" Dec="0" Constellation="" Classification="Unidentified" Magnitude="0" Distance="0" ZoomLevel="360" Rotation="0" Angle="0" DomeAlt="0" DomeAz="0" Opacity="100" AngularSize="360">
+    <Target>Custom</Target>
+    <ForegroundImageSet>
+      <ImageSet MSRCommunityId="0" MSRComponentId="0" Permission="0" Generic="False" DataSetType="Sky" BandPass="IR" Url="http://www.worldwidetelescope.org/wwtweb/TwoMassToast.aspx?q={1},{2},{3}" TileLevels="8" WidthFactor="1" Sparse="False" Rotation="0" QuadTreeMap="0123" Projection="Toast" Name="2Mass: Imagery (Infrared)" FileType=".png" CenterY="0" CenterX="0" BottomsUp="False" StockSet="False" ElevationModel="False" OffsetX="0" OffsetY="0" BaseTileLevel="0" BaseDegreesPerTile="180" MeanRadius="0">
+        <Credits>This publication makes use of data products from the Two Micron All Sky Survey, which is a joint project of the University of Massachusetts and the Infrared Processing and Analysis Center/California Institute of Technology, funded by the National Aeronautics and Space Administration and the National 
+
+Science Foundation.</Credits>
+        <CreditsUrl>http://www.ipac.caltech.edu/2mass/</CreditsUrl>
+        <ThumbnailUrl>http://www.worldwidetelescope.org/wwtweb/thumbnail.aspx?name=2mass</ThumbnailUrl>
+      </ImageSet>
+    </ForegroundImageSet>
+  </Place>
+  <Place MSRCommunityId="0" MSRComponentId="0" Permission="0" Name="GLIMPSE 360" DataSetType="Sky" RA="17.75" Dec="-28.9" Constellation="SGR" Classification="Galactic" Magnitude="0" Distance="0" ZoomLevel="0" Rotation="0" Angle="0" DomeAlt="0" DomeAz="0" Opacity="100" AngularSize="0">
+    <Target>Undefined</Target>
+    <ForegroundImageSet>
+      <ImageSet MSRCommunityId="0" MSRComponentId="0" Permission="0" Generic="False" DataSetType="Sky" BandPass="IR" Url="http://cdn.worldwidetelescope.org/wwtweb/g360.aspx?q={1},{2},{3}" TileLevels="12" WidthFactor="1" Sparse="False" Rotation="0" QuadTreeMap="" Projection="Toast" Name="GLIMPSE 360" FileType=".png" CenterY="0" CenterX="0" BottomsUp="False" StockSet="False" ElevationModel="False" OffsetX="0" OffsetY="0" BaseTileLevel="0" BaseDegreesPerTile="180" MeanRadius="0">
+        <Credits>NASA/JPL-Caltech/Univ. of Wisconsin. The GLIMPSE 360 survey was performed using the Spitzer Space Telescope.</Credits>
+        <CreditsUrl>http://www.astro.wisc.edu/sirtf/</CreditsUrl>
+        <ThumbnailUrl>http://www.worldwidetelescope.org/wwtweb/thumbnail.aspx?name=glimpsetn</ThumbnailUrl>
+      </ImageSet>
+    </ForegroundImageSet>
+  </Place>
+  <Place MSRCommunityId="0" MSRComponentId="0" Permission="0" Name="GLIMPSE/MIPSGAL" DataSetType="Sky" RA="17.75" Dec="-28.9" Constellation="SGR" Classification="Galactic" Magnitude="0" Distance="0" ZoomLevel="0" Rotation="0" Angle="0" DomeAlt="0" DomeAz="0" Opacity="100" AngularSize="0">
+    <Target>Undefined</Target>
+    <ForegroundImageSet>
+      <ImageSet MSRCommunityId="0" MSRComponentId="0" Permission="0" Generic="False" DataSetType="Sky" BandPass="IR" Url="http://www.worldwidetelescope.org/wwtweb/mipsgal.aspx?q={1},{2},{3}" TileLevels="11" WidthFactor="1" Sparse="False" Rotation="0" QuadTreeMap="" Projection="Toast" Name="GLIMPSE/MIPSGAL" FileType=".png" CenterY="0" CenterX="0" BottomsUp="False" StockSet="False" ElevationModel="False" OffsetX="0" OffsetY="0" BaseTileLevel="0" BaseDegreesPerTile="180" MeanRadius="0">
+        <Credits>NASA/JPL-Caltech/Univ. of Wisconsin. The GLIMPSE survey was performed using the Spitzer Space Telescope.</Credits>
+        <CreditsUrl>http://www.astro.wisc.edu/sirtf/</CreditsUrl>
+        <ThumbnailUrl>http://www.worldwidetelescope.org/wwtweb/thumbnail.aspx?name=glimpsemipsgaltn</ThumbnailUrl>
+      </ImageSet>
+    </ForegroundImageSet>
+  </Place>
+</Folder>

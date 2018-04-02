@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Adler After Dark</title>
+	<meta name="generator" content="BBEdit 11.0" />
+	<link rel="stylesheet" href="../webfontkit/stylesheet.css" type="text/css" charset="utf-8" />
+    <link href="../stories.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="wrapper3">
+<div id="slidesmall">
+
+<a href="http://arxiv.org/abs/1111.3983" target="_blank"><img src="adsass-arxiv.png" alt="ADSASS" width="600px" style="position:absolute;left:50px;top:30px" style="display:inline"/></a>
+</div>
+<p class="css-typing">
+<div id="slidesmall" style="position:absolute;left:20px;top:300px">
+
+The team will continue to update the ADSASS as new papers are published.  They also plan to add additional facets, to allow users to search for specific types of objects and/or papers, and visualize the distribution of those objects on the sky.  Such an interface could eventually be integrated into the main ADS website astronomers use to search through the literature.
+
+
+</div>
+</body>
+</html>

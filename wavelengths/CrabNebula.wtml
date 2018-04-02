@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<Folder MSRCommunityId="0" MSRComponentId="0" Permission="0" Name="Crab Nebula" Group="Explorer" Searchable="False" Type="Earth">
+  <VersionDependent>false</VersionDependent>
+  <Place MSRCommunityId="0" MSRComponentId="0" Permission="0" Name="Crab Nebula" DataSetType="Sky" RA="5.5755555555555549" Dec="22.014444444444443" Constellation="TAU" Classification="Galaxy" Magnitude="0" Distance="0" ZoomLevel="1" Rotation="0" Angle="0" DomeAlt="0" DomeAz="0" Opacity="100" AngularSize="1">
+    <Target>Undefined</Target>
+    <ForegroundImageSet>
+      <ImageSet MSRCommunityId="0" MSRComponentId="0" Permission="0" Generic="False" DataSetType="Sky" BandPass="XRay" Url="http://r{S:0}.ortho.tiles.virtualearth.net/tiles/wsa0000000000{Q}?g=131" TileLevels="4" WidthFactor="2" Sparse="True" Rotation="-3.91369594669139" QuadTreeMap="0123" Projection="Tangent" Name="Crab Nebula" FileType=".png" CenterY="22.0144386292" CenterX="83.6330108643" BottomsUp="False" StockSet="False" ElevationModel="False" OffsetX="0.00130269265694729" OffsetY="0.00165938231301619" BaseTileLevel="0" BaseDegreesPerTile="0.0635217752720965" MeanRadius="0">
+        <Credits>NASA/CXC/ASU/J. Hester et al.</Credits>
+        <CreditsUrl>http://chandra.harvard.edu/photo/2006/crab/more.html#0052_xray_widefield</CreditsUrl>
+        <ThumbnailUrl>http://www.worldwidetelescope.org/wwtweb/thumbnail.aspx?name=1015380289</ThumbnailUrl>
+      </ImageSet>
+    </ForegroundImageSet>
+  </Place>
+  <Place MSRCommunityId="0" MSRComponentId="0" Permission="0" Name="Crab Nebula" DataSetType="Sky" RA="5.575277777777778" Dec="22.0172222222222" Constellation="TAU" Classification="SupernovaRemnant" Magnitude="0" Distance="0" ZoomLevel="2" Rotation="0" Angle="0" DomeAlt="0" DomeAz="0" Opacity="100" AngularSize="2">
+    <Target>Undefined</Target>
+    <ForegroundImageSet>
+      <ImageSet MSRCommunityId="0" MSRComponentId="0" Permission="0" Generic="False" DataSetType="Sky" BandPass="IR" Url="http://r{S:2}.ortho.tiles.virtualearth.net/tiles/wsa0000010322{Q}?g=131" TileLevels="4" WidthFactor="2" Sparse="True" Rotation="-0.984969547776001" QuadTreeMap="0123" Projection="Tangent" Name="Crab Nebula;M1;Messier 1;NGC 1952" FileType=".png" CenterY="22.065806842369" CenterX="83.5987600171109" BottomsUp="False" StockSet="False" ElevationModel="False" OffsetX="-0.0273678123294353" OffsetY="-0.0484291829101535" BaseTileLevel="0" BaseDegreesPerTile="0.222978864789004" MeanRadius="0">
+        <Credits>NASA/JPL-Caltech/R. Gehrz (University of Minnesota)</Credits>
+        <CreditsUrl>http://gallery.spitzer.caltech.edu/Imagegallery/image.php?image_name=sig05-003</CreditsUrl>
+        <ThumbnailUrl>http://www.worldwidetelescope.org/wwtweb/thumbnail.aspx?name=138469777</ThumbnailUrl>
+      </ImageSet>
+    </ForegroundImageSet>
+  </Place>
+  <Place MSRCommunityId="0" MSRComponentId="0" Permission="0" Name="Crab Nebula : Dead Star Creates Celestial Havoc" DataSetType="Sky" RA="5.5755555555555461" Dec="22.0166666666667" Constellation="TAU" Classification="SupernovaRemnant" Magnitude="0" Distance="0" ZoomLevel="1" Rotation="0" Angle="0" DomeAlt="0" DomeAz="0" Opacity="100" AngularSize="1">
+    <Target>Undefined</Target>
+    <ForegroundImageSet>
+      <ImageSet DemUrl="" MSRCommunityId="0" MSRComponentId="0" Permission="0" Generic="False" DataSetType="Sky" BandPass="Visible" Url="http://r{S:2}.ortho.tiles.virtualearth.net/tiles/wsa0000001102{Q}?g=138" TileLevels="4" WidthFactor="2" Sparse="True" Rotation="-0.0751860195300311" QuadTreeMap="0123" Projection="Tangent" Name="Crab Nebula : Dead Star Creates Celestial Havoc" FileType=".png" CenterY="22.0172769653712" CenterX="83.6331623858263" BottomsUp="False" StockSet="False" ElevationModel="False" OffsetX="0" OffsetY="0" BaseTileLevel="0" BaseDegreesPerTile="0.22681269761397" MeanRadius="0">
+        <Credits>Credit: NASA, ESA, CXC, JPL-Caltech, J. Hester and A. Loll (Arizona State Univ.), R. Gehrz (Univ. Minn.), and STScI</Credits>
+        <CreditsUrl>http://hubblesite.org/newscenter/newsdesk/archive/releases/2005/37/</CreditsUrl>
+        <ThumbnailUrl>http://www.worldwidetelescope.org/wwtweb/thumbnail.aspx?name=912623430</ThumbnailUrl>
+      </ImageSet>
+    </ForegroundImageSet>
+  </Place>
+  <Place MSRCommunityId="0" MSRComponentId="0" Permission="0" Name="M1" DataSetType="Sky" RA="5.5749999999999957" Dec="22.01666667" Constellation="TAU" Classification="Nebula" Magnitude="8.4" Distance="0" ZoomLevel="-1" Rotation="0" Angle="0" DomeAlt="0" DomeAz="0" Opacity="100" AngularSize="-1">
+    <Target>Undefined</Target>
+  </Place>
+  <Place MSRCommunityId="0" MSRComponentId="0" Permission="0" Name="Combined X-Ray and Optical Images of the Crab Nebula" DataSetType="Sky" RA="5.5755555555555461" Dec="22.0166666666667" Constellation="TAU" Classification="SupernovaRemnant" Magnitude="0" Distance="0" ZoomLevel="1" Rotation="0" Angle="0" DomeAlt="0" DomeAz="0" Opacity="100" AngularSize="1">
+    <Target>Undefined</Target>
+    <ForegroundImageSet>
+      <ImageSet DemUrl="" MSRCommunityId="0" MSRComponentId="0" Permission="0" Generic="False" DataSetType="Sky" BandPass="Visible" Url="http://r{S:3}.ortho.tiles.virtualearth.net/tiles/wsa0000003103{Q}?g=138" TileLevels="4" WidthFactor="2" Sparse="True" Rotation="0.131602714136276" QuadTreeMap="0123" Projection="Tangent" Name="Combined X-Ray and Optical Images of the Crab Nebula" FileType=".png" CenterY="22.0168216159557" CenterX="83.6312095368879" BottomsUp="False" StockSet="False" ElevationModel="False" OffsetX="0" OffsetY="0" BaseTileLevel="0" BaseDegreesPerTile="0.0611710016476516" MeanRadius="0">
+        <Credits>Credits for X-ray Image:  NASA/CXC/ASU/J. Hester et al. Credits for Optical Image: NASA/HST/ASU/J. Hester et al.</Credits>
+        <CreditsUrl>http://hubblesite.org/newscenter/newsdesk/archive/releases/2002/24/</CreditsUrl>
+        <ThumbnailUrl>http://www.worldwidetelescope.org/wwtweb/thumbnail.aspx?name=1761294343</ThumbnailUrl>
+      </ImageSet>
+    </ForegroundImageSet>
+  </Place>
+</Folder>

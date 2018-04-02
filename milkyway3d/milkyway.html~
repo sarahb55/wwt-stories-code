@@ -1,0 +1,723 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="utf-8" http-equiv="X-UA-Compatible" content="chrome=1, IE=edge"/>
+    <title>Milkway 3D Coverage Tool</title>
+    <script src="http://www.worldwidetelescope.org/scripts/wwtsdk.aspx"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="grs.js" type="text/javascript"></script>
+    <script src="sorttable.js"></script>
+    
+    
+        
+    <script>
+         // declare global Worldwide Telescope object
+         var wwt;
+         // Create variables to hold the changeable settings
+        var bShowCrosshairs = true;
+        var bShowUI = false;
+        var bShowFigures = false;
+        var map;
+	    var layers = new Object();
+	    var points = new Object();
+	    var regions
+	
+	    var eventListeners = [];
+	    var k;
+         // This function initializes the wwt object and once it is done 
+        // it fires the wwtReady event
+         function initialize() {
+            wwt = wwtlib.WWTControl.initControl("WWTCanvas");
+            wwt.add_ready(wwtReady);
+           
+        }
+         // This function is where you would put your custom code for WWT
+        // following the initForWwt() call
+         function wwtReady() {
+            initForWwt();
+ 
+        }
+        
+         function setVisible(element) {
+         
+       
+	        if (document.getElementById(element).checked) {
+	            for (k in layers[element]) {
+	                wwt.addAnnotation(layers[element][k]);
+	            }
+	        } else {
+	            for (k in layers[element]) {
+	                wwt.removeAnnotation(layers[element][k]);
+	            }
+	        }
+	    }
+	    
+	    function newMarker(ra, dec, color) {
+	        //ra = ra * (-1) + 180;
+	        var circle = wwt.createCircle(true);
+	        circle.setCenter(ra, dec);
+	        circle.set_skyRelative(true);
+	        circle.set_radius(.1);
+	        circle.set_fillColor(color);
+	        circle.set_lineColor(color);
+			
+	        return circle;
+	    }
+	    
+	    function addPoints(points, color){
+	    	
+	    	 for (var i in points) {
+	           var circle =  newMarker(points[i].RA, points[i].Dec, color);     
+	           wwt.addAnnotation(circle);
+	    
+	        }
+	     
+	    
+	    }
+	    
+	    function hms(h, m, s) {
+	        h = h + m / 60 + s / 3600;
+	        var d = (h ) * 15;
+	       
+	        return d;
+	    }
+	    function dms(d, m, s) {
+	        if (d < 0) { m = -m; s = -s; }
+	        d = d + m / 60 + s / 3600;
+	        return d;
+	    }
+	    
+	    function WWTPolygon(points, strokeColor, strokeWeight, stokeOpacity, fillColor, fillOpacity) {
+	        var poly = wwt.createPolygon(true);
+
+	        poly.set_lineColor(strokeColor);
+	        poly.set_fillColor(fillColor);
+	        poly.set_lineWidth(strokeWeight);
+	        poly.set_opacity(fillOpacity);
+	        for (var i in points) {
+	            poly.addPoint(points[i].RA, points[i].Dec);     
+	        }
+	        	  		
+	        return poly;
+	       
+	    } 
+
+	    
+	    function showPoly(regionname, polycolor){
+
+	   		var poly = new WWTPolygon(regions[regionname], polycolor, 1, 1, polycolor, 0.2);
+	   		wwt.addAnnotation(poly);
+	   		layers[regionname] = new Array(poly);
+	   		
+	   		return poly;
+	   		
+	    
+	    }
+	    
+	    
+	   
+	  
+function FovInc() {
+        var newFov = 1.5 * wwt.get_fov();
+        var savedRA = wwt.getRA();
+ 		var savedDec = wwt.getDec();
+
+        if (newFov <= 60) {
+            wwt.gotoRaDecZoom(266.40508920,      -28.93617470, newFov, false); //Galactic coordinates (0,0)
+        }
+     
+    }
+    
+function FovDec() {
+    	var savedRA = wwt.getRA();
+ 		var savedDec = wwt.getDec();
+        var newFov = wwt.get_fov() / 1.5    ;
+        
+        if (wwt.get_fov() >= 0.00022910934437488727) {
+            wwt.gotoRaDecZoom(266.40508920,      -28.93617470, newFov, false); //Galactic coordinates (0,0)
+        }
+   
+         
+    }
+
+         // This is the initialization for Worldwide Telescope
+         function initForWwt() {
+//        	wwt.loadImageCollection("http://www.worldwidetelescope.org/COMPLETE/wwtcomplete.wtml");
+wwt.loadImageCollection("milky.wtml");
+
+    //wwt.add_collectionLoaded(default_layers);
+    //wwt.add_annotationClicked(finderScope);
+      wwt.setBackgroundImageByName("GLIMPSE 360");
+      //wwt.setForegroundImageByName("GLIMPSE/MIPSGAL");
+            
+            
+            // add any wwt object settings changes here
+    
+
+            wwt.settings.set_showCrosshairs(bShowCrosshairs);
+        	wwt.settings.set_showGalacticGrid(true);
+            wwt.settings.set_showGalacticGridText(true);
+            wwt.settings.set_galacticMode(true);
+           // wwt.settings.set_showGrid(true);
+           
+            
+            wwt.settings.set_showConstellationBoundries(false);
+            wwt.settings.set_showConstellationFigures(false);
+            
+            var poly1, poly2, poly3, poly4;
+            
+            
+            poly1 = showPoly('GRS',  "#ff6600");
+            addPoints(regions['GRS'],"#ff6600");
+            layers["GRS"] = new Array(poly1);
+          
+            poly1 = showPoly('HOPS1',  "#ff0000");
+            poly2 = showPoly('HOPS2',  "#ff0000");
+            addPoints(HOPS_PNTS,"#ff000f");
+            layers["HOPS"] = new Array(poly1, poly2);
+            
+          
+            
+            poly1 = showPoly('BGPS1', '#669933');
+            poly2 =showPoly('BGPS2', '#669933');
+            addPoints(regions['BGPS1'],'#669933');
+            addPoints(regions['BGPS2'],'#669933');
+            layers["BGPS"] = new Array(poly1, poly2);
+            
+             
+            poly1 = showPoly('CHIMPS', '#006633');
+            addPoints(regions['CHIMPS'],'#006633');
+            layers["CHIMPS"] = new Array(poly1);
+            
+            
+            
+        	poly1 = showPoly('JCMT', "#0033FF");
+            addPoints(regions['JCMT'], "#0033FF");
+            layers["JCMT"] = new Array(poly1);
+            
+            poly1 = showPoly('COHRS', "#00FFFF");
+            addPoints(regions['COHRS'], "#00FFFF");
+            layers["COHRS"] = new Array(poly1);
+            
+            poly1 = showPoly('CORNISH', "#660000");
+            addPoints(regions['CORNISH'], "#660000");
+            layers["CORNISH"] = new Array(poly1);
+            
+            poly1 = showPoly('ATLASGAL1', "#006699");
+            poly2 = showPoly('ATLASGAL2', "#006699");
+            addPoints(regions['ATLASGAL1'],"#006699");
+            addPoints(regions['ATLASGAL2'],"#006699");
+            layers["ATLASGAL"] = new Array(poly1, poly2);
+            
+            poly1 = showPoly('HIGAL1', "#9966FF");
+            poly2 = showPoly('HIGAL2', "#9966FF");
+            addPoints(regions['HIGAL1'],"#9966FF");
+            addPoints(regions['HIGAL2'],"#9966FF");
+            layers["HIGAL"] = new Array(poly1, poly2);
+          	
+          	poly1 = showPoly('THRUMMS', "#CCCC66");
+            addPoints(regions['THRUMMS'], "#CCCC66");
+            layers["THRUMMS"] = new Array(poly1);
+            
+            poly1 = showPoly('UKIDSS_1', "#990099");
+            poly2 = showPoly('UKIDSS_2', "#990099");
+            poly3 = showPoly('UKIDSS_3', "#990099");
+            poly4 = showPoly('UKIDSS_4', "#990099");
+            addPoints(regions['UKIDSS_1'],"#990099");
+            addPoints(regions['UKIDSS_2'],"#990099");
+            addPoints(regions['UKIDSS_3'],"#990099");
+            addPoints(regions['UKIDSS_4'],"#990099");
+            layers["UKIDSS"] = new Array(poly1, poly2, poly3, poly4);
+          
+        	poly1 = showPoly('RAMPS', "#CC6666");
+            addPoints(regions['RAMPS'], "#CC6666");
+            layers["RAMPS"] = new Array(poly1);
+         
+          	poly1 = showPoly('MALT90_1', "#993300");
+            poly2 = showPoly('MALT90_2', "#993300");
+            addPoints(regions['MALT90_1'],"#993300");
+            addPoints(regions['MALT90_2'],"#993300");
+            layers["MALT90"] = new Array(poly1, poly2);
+        
+          
+          
+        
+            wwt.gotoRaDecZoom(266.40508920,      -28.93617470, wwt.get_fov() / 6.0 , false); 
+          
+           // wwt.hideUI(!bShowUI);
+            
+        }
+         // A simple function to toggle the settings
+        // This function is called from the checkbox entries setup in the html table
+         function toggleSetting(text) {
+            switch (text) {
+                case 'ShowUI':
+                    bShowUI = !bShowUI;
+                    wwt.hideUI(!bShowUI);
+                    wwt.set_showExplorerUI(bShowUI);
+                    break;
+                 case 'ShowCrosshairs':
+                    bShowCrosshairs = !bShowCrosshairs;
+                    wwt.settings.set_showCrosshairs(bShowCrosshairs);
+                    break;
+                 case 'ShowFigures':
+                    bShowFigures = !bShowFigures;
+                    wwt.settings.set_showConstellationFigures(bShowFigures);
+                    break;
+            }
+        }
+         // A function to change the view to different constellations
+        // Note the fov set to 60 (maximum view distance)
+        // This function is called from the button entries in the html table
+ 
+       
+     </script>
+ </head>
+ <body onload="initialize()">
+  <div id="wrapper">
+ <!-- The body section creates a table with two columns. The first contains the -->
+<!-- canvas tag that is the WWT web client target. And the second a table within-->
+<!-- the table, containing some buttons and checkboxes.-->
+<a href="milkyway.html"><img src="images/milkway.jpeg" align="left" alt="Milky Way" height="80"/></a>
+<h1>Milky Way 3D</h1>
+<h2>Galactic Plane Coverage Tool</h2>
+ <br/>
+ <table bgcolor="black">
+    <tr><td colspan="3">
+        <div id="WorldWideTelescopeControlHost">
+        <div id="WWTCanvas" style="width:1300px; height:400px; border-style: none; border-width: 5px;padding: 5px 5px;"></div>
+     </div>
+                  
+    </td>
+   
+   </table>
+    <br/> <br/>
+     <table>
+    <tr>
+    <th width="300" >
+
+
+
+    </th>
+  <th width="300" align="center">
+Extended Observations
+  </th>
+    <th width="325">
+ 
+Catalogs and Pointed Surveys
+  </th>
+
+    </tr>
+    </table>
+    
+    
+  <table class="sortable" >
+    <tr>
+    <th width="150">
+    Survey
+    </th>
+    <th width="150">
+    Wavelength
+    </th>
+  <th width="150">
+ Continuum (2D)
+  </th>
+    <th width="150">
+  Spectral Line (3D)
+  </th >
+    <th width="190">
+Source-Based Lists (1D)
+  </th>
+  <th width="150">
+  Spectral Line (2D)
+  </th>
+  <th>
+  View Region</th>
+    </tr>
+   
+<tr>
+    <tr>
+    <td>
+ <a href="GRS.html"> <font color="#FF6600"> GRS</font></a>
+    </td>
+    <td>
+  3 mm
+    </td>
+</td>
+  <td name="Continuum (2D)">
+
+  </td>
+    <td name="Spectral Line (3D)">
+    <font color="#FF6600">&#9733;</font>
+
+  </td >
+    <td name="Source-Based Lists (1D)">
+
+  </td>
+  <td name="Spectral Line (2D)">
+   </td>
+  <td>
+<input id="GRS" type="checkbox" checked="true" onclick="setVisible('GRS');"/>
+  </td>
+</tr>
+
+    <tr>
+    <td>
+ <a href="HOPS.html"> <font color="#FF0000">HOPS</font></a>
+    </td>
+    <td>
+  12 mm
+    </td>
+  <td name="Continuum (2D)">
+
+  </td>
+    <td name="Spectral Line (3D)">
+<font color="#FF0000">&#9733;</font>
+  </td >
+    <td name="Source-Based Lists (1D)">
+
+  </td>
+  <td name="Spectral Line (2D)">
+  <font color="#FF0000">&#9733;</font>
+   </td>
+  <td>
+<input id="HOPS" type="checkbox" checked="true" onclick="setVisible('HOPS');"/>
+  </td>
+</tr>
+ <tr>
+
+    <td>
+    
+  <a href="BGPS.html"> <font color="#669933">BGPS</font></a>
+    </td>
+    <td>
+  1 mm
+    </td>
+  <td name="Continuum (2D)">
+<font color="#669933">&#9733;</font>
+  </td>
+    <td name="Spectral Line (3D)">
+
+  </td >
+    <td name="Source-Based Lists (1D)">
+<font color="#669933">&#9733;</font>
+  </td>
+  <td name="Spectral Line (2D)">
+<font color="#669933">&#9733;</font>
+  </td>
+  <td>
+<input id="BGPS" type="checkbox" checked="true" onclick="setVisible('BGPS');"/>
+  </td>
+  </font>
+</tr>
+
+ <tr>
+
+    <td>
+    
+  <a href="GPIPS.html"> <font color="#990033">GPIPS</font></a>
+    </td>
+    <td>
+  1.6 ﾂｵm
+    </td>
+  <td name="Continuum (2D)">
+
+  </td>
+    <td name="Spectral Line (3D)">
+
+  </td >
+    <td name="Source-Based Lists (1D)">
+<font color="#990033">&#9733;</font>
+  </td>
+  <td name="Spectral Line (2D)">
+
+  </td>
+  <td>
+<input id="GPIPS" type="checkbox" checked="true" onclick="setVisible('GPIPS');"/>
+  </td>
+  </font>
+</tr>
+
+ <tr>
+
+    <td>
+    
+  <a href="CHIMPS.html"> <font color="#006633">CHIMPS</font></a>
+    </td>
+    <td>
+1 mm
+    </td>
+  <td name="Continuum (2D)">
+
+  </td>
+    <td name="Spectral Line (3D)">
+<font color="#006633">&#9733;</font>
+  </td >
+    <td name="Source-Based Lists (1D)">
+
+  </td>
+  <td name="Spectral Line (2D)">
+
+  </td>
+  <td>
+<input id="CHIMPS" type="checkbox" checked="true" onclick="setVisible('CHIMPS');"/>
+  </td>
+  </font>
+</tr>
+
+
+ <tr>
+
+    <td>
+    
+  <a href="JCMT.html"> <font color="#0033FF">JCMT</font></a>
+    </td>
+    <td>
+850 敖［
+    </td>
+  <td name="Continuum (2D)">
+<font color="#0033FF">&#9733;</font>
+  </td>
+    <td name="Spectral Line (3D)">
+
+  </td >
+    <td name="Source-Based Lists (1D)">
+<font color="#0033FF">&#9733;</font>
+  </td>
+  <td name="Spectral Line (2D)">
+
+  </td>
+  <td>
+<input id="JCMT" type="checkbox" checked="true" onclick="setVisible('JCMT');"/>
+  </td>
+  </font>
+</tr>
+
+<tr> <td><a href="COHRS.html"> <font color="#00FFFF">COHRS</font></a>
+    </td>
+    <td>
+1 mm
+    </td>
+  <td name="Continuum (2D)">
+
+  </td>
+    <td name="Spectral Line (3D)">
+<font color="#00FFFF">&#9733;</font>
+  </td >
+    <td name="Source-Based Lists (1D)">
+
+  </td>
+  <td name="Spectral Line (2D)">
+
+  </td>
+  <td>
+<input id="COHRS" type="checkbox" checked="true" onclick="setVisible('COHRS');"/>
+  </td>
+  </font>
+</tr>
+<tr> <td><a href="CORNISH.html"> <font color="#660000">CORNISH</font></a>
+    </td>
+    <td>
+60 mm
+    </td>
+  <td name="Continuum (2D)">
+<font color="#660000">&#9733;</font>
+  </td>
+    <td name="Spectral Line (3D)">
+
+  </td >
+    <td name="Source-Based Lists (1D)">
+<font color="#660000">&#9733;</font>
+  </td>
+  <td name="Spectral Line (2D)">
+
+  </td>
+  <td>
+<input id="CORNISH" type="checkbox" checked="true" onclick="setVisible('CORNISH');"/>
+  </td>
+  </font>
+</tr>
+<tr> <td><a href="ATLASGAL.html"> <font color="#006699">ATLASGAL</font></a>
+    </td>
+    <td>
+870 敖［
+    </td>
+  <td name="Continuum (2D)">
+<font color="#006699">&#9733;</font>
+  </td>
+    <td name="Spectral Line (3D)">
+
+  </td >
+    <td name="Source-Based Lists (1D)">
+<font color="#006699">&#9733;</font>
+  </td>
+  <td name="Spectral Line (2D)">
+
+  </td>
+  <td>
+<input id="ATLASGAL" type="checkbox" checked="true" onclick="setVisible('ATLASGAL');"/>
+  </td>
+  </font>
+</tr>
+
+<tr> <td><a href="HI-GAL.html"> <font color="#9966FF">HI-GAL</font></a>
+    </td>
+    <td>
+70-500 敖［
+    </td>
+  <td name="Continuum (2D)">
+<font color="#9966FF">&#9733;</font>
+  </td>
+    <td name="Spectral Line (3D)">
+
+  </td >
+    <td name="Source-Based Lists (1D)">
+
+  </td>
+  <td name="Spectral Line (2D)">
+
+  </td>
+  <td>
+<input id="HIGAL" type="checkbox" checked="true" onclick="setVisible('HIGAL');"/>
+  </td>
+  </font>
+</tr>
+
+<tr> <td><a href="THRUMMS.html"> <font color="#CCCC66">THRUMMS</font></a>
+    </td>
+    <td>
+3 mm
+    </td>
+  <td name="Continuum (2D)">
+
+  </td>
+    <td name="Spectral Line (3D)">
+<font color="#CCCC66">&#9733;</font>
+  </td >
+    <td name="Source-Based Lists (1D)">
+
+  </td>
+  <td name="Spectral Line (2D)">
+
+  </td>
+  <td>
+<input id="THRUMMS" type="checkbox" checked="true" onclick="setVisible('THRUMMS');"/>
+  </td>
+  </font>
+</tr>
+
+
+<tr> <td><a href="UKIDSS-GPS.html"> <font color="#990099">UKIDSS-GPS</font></a>
+    </td>
+    <td>
+1.3, 1.6, 2.2 敖［
+    </td>
+  <td name="Continuum (2D)">
+<font color="#990099">&#9733;</font>
+  </td>
+    <td name="Spectral Line (3D)">
+
+  </td >
+    <td name="Source-Based Lists (1D)">
+
+  </td>
+  <td name="Spectral Line (2D)">
+
+  </td>
+  <td>
+<input id="UKIDSS" type="checkbox" checked="true" onclick="setVisible('UKIDSS');"/>
+  </td>
+  </font>
+</tr>
+
+<tr> <td><a href="RAMPS.html"> <font color="#CC6666">RAMPS</font></a>
+    </td>
+    <td>
+1 cm
+    </td>
+  <td name="Continuum (2D)">
+
+  </td>
+    <td name="Spectral Line (3D)">
+
+  </td >
+    <td name="Source-Based Lists (1D)">
+    <font color="#CC6666">&#9733;</font>
+
+  </td>
+  <td name="Spectral Line (2D)">
+
+  </td>
+  <td>
+<input id="RAMPS" type="checkbox" checked="true" onclick="setVisible('RAMPS');"/>
+  </td>
+  </font>
+</tr>
+
+<tr> <td><a href="RAMPS.html"> <font color="#993300">MALT90</font></a>
+    </td>
+    <td>
+3 mm
+    </td>
+  <td name="Continuum (2D)">
+
+  </td>
+    <td name="Spectral Line (3D)">
+
+  </td >
+    <td name="Source-Based Lists (1D)">
+
+  </td>
+  <td name="Spectral Line (2D)">
+<font color="#993300">&#9733;</font>
+  </td>
+  <td>
+<input id="MALT90" type="checkbox" checked="true" onclick="setVisible('MALT90');"/>
+  </td>
+  </font>
+</tr>
+ <!--tr>
+    <td>
+ <a href="RAMPS.html"> <font color="#CC6666">RAMPS*</font></a>
+    </td>
+    <td>
+  1 cm
+    </td>
+  <td name="Continuum (2D)">
+
+  </td>
+    <td name="Spectral Line (3D)">
+<input id="RAMPS" type="checkbox" checked="true" onclick="setVisible('RAMPS');"/>
+  </td >
+    <td name="Source-Based Lists (1D)">
+
+  </td>
+  <td name="Spectral Line (2D)">
+
+  </td>
+</tr>
+ <tr>
+    <td>
+ <a href="CORNISH.html"> <font color="#660000">CORNISH*</font></a>
+    </td>
+    <td>
+ 60 mm
+    </td>
+  <td name="Continuum (2D)">
+
+  </td>
+    <td name="Spectral Line (3D)">
+<input id="CORNISH" type="checkbox" checked="true" onclick="setVisible('CORNISH');"/>
+  </td >
+    <td name="Source-Based Lists (1D)">
+
+  </td>
+  <td name="Spectral Line (2D)">
+<input id="CORNISH" type="checkbox" checked="true" onclick="setVisible('CORNISH');"/>
+  </td >
+  </td>
+</tr-->
+</table>
+</div>
+ </body>
+</html>

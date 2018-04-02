@@ -1,0 +1,128 @@
+<!DOCTYPE html >
+<html>
+<head>
+     <meta charset="utf-8" http-equiv="X-UA-Compatible" content="chrome=1, IE=edge"/>
+     <title>Milkway 3D Coverage Tool</title>
+    <script src="http://www.worldwidetelescope.org/scripts/wwtsdk.aspx"></script>
+    <link rel="stylesheet" href="style.css">
+        
+    <script>
+         // declare global Worldwide Telescope object
+         var wwt;
+         // Create variables to hold the changeable settings
+        var bShowCrosshairs = true;
+        var bShowUI = false;
+        var bShowFigures = false;
+         // This function initializes the wwt object and once it is done 
+        // it fires the wwtReady event
+         function initialize() {
+            wwt = wwtlib.WWTControl.initControl("WWTCanvas");
+            wwt.add_ready(wwtReady);
+           
+        }
+         // This function is where you would put your custom code for WWT
+        // following the initForWwt() call
+         function wwtReady() {
+            initForWwt();
+ 
+        }
+         // This is the initialization for Worldwide Telescope
+         function initForWwt() {
+            wwt.loadImageCollection("http://www.worldwidetelescope.org/COMPLETE/wwtcomplete.wtml");
+            
+            // add any wwt object settings changes here
+            wwt.settings.set_showCrosshairs(bShowCrosshairs);
+            wwt.settings.set_showConstellationFigures(bShowFigures);
+           // wwt.hideUI(!bShowUI);
+            
+        }
+         // A simple function to toggle the settings
+        // This function is called from the checkbox entries setup in the html table
+         function toggleSetting(text) {
+            switch (text) {
+                case 'ShowUI':
+                    bShowUI = !bShowUI;
+                    wwt.hideUI(!bShowUI);
+                    wwt.set_showExplorerUI(bShowUI);
+                    break;
+                 case 'ShowCrosshairs':
+                    bShowCrosshairs = !bShowCrosshairs;
+                    wwt.settings.set_showCrosshairs(bShowCrosshairs);
+                    break;
+                 case 'ShowFigures':
+                    bShowFigures = !bShowFigures;
+                    wwt.settings.set_showConstellationFigures(bShowFigures);
+                    break;
+            }
+        }
+         // A function to change the view to different constellations
+        // Note the fov set to 60 (maximum view distance)
+        // This function is called from the button entries in the html table
+ 
+       
+     </script>
+ </head>
+ <body onload="initialize()">
+ <!-- The body section creates a table with two columns. The first contains the -->
+<!-- canvas tag that is the WWT web client target. And the second a table within-->
+<!-- the table, containing some buttons and checkboxes.-->
+<a href="milkyway.html"><img src="images/milkway.jpeg" align="left" alt="Milky Way" height="100"/></a>
+<h1>Milky Way 3D</h1>
+<h2>Galactic Plane Coverage Tool</h2>
+ <br/>
+ <table border="0" bgcolor="black">
+    <tr><td colspan="3">
+        <div id="WorldWideTelescopeControlHost">
+        <div id="WWTCanvas" style="width:1000px; height:200px; border-style: none; border-width: 20px;padding: 40px 40px;"></div>
+     </div>
+                  
+    </td>
+
+   </table>
+    <br/> <br/>
+   <table>  
+    <tr>
+  <th width="300">
+  Spectral Line
+  </th>
+    <th width="300">
+    Imaging
+  </th >
+    <th width="300">
+    Catalog
+  </th>
+    </tr>
+   
+<tr>
+<td>CHIMPS</td><td>ATLASGA</td><td>ATLASGAL</td>
+
+</tr>
+<tr>
+<td>COHRS</td><td>BGPS</td><td>CORNISH</td>
+
+</tr>
+<tr>
+<td><a href="GRS.html">GRS</td><td>GLIMPSE</td><td>HOPS</td>
+
+</tr>
+<tr>
+<td>HOPS</td><td>Hi-GAL</td><td>BGPS</td>
+
+</tr>
+<tr>
+<td>RAMPS</td><td>JCMT</td><td>MALT90</td>
+
+</tr>
+<tr>
+<td>ThrUMMS</td><td>MIPSGAL</td><td>GPIPS</td>
+
+</tr>
+<tr>
+<td colspan="3">
+<p>Footer of some sort • Contact • About</p>
+</td>
+</tr>
+</table>
+
+ </body>
+</html>

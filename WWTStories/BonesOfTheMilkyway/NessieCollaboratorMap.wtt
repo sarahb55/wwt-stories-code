@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<FileCabinet HeaderSize="0x0000023b">
+  <Files>
+    <File Name="Nessie Collaboration.wwtxml" Size="12579" Offset="0" />
+    <File Name="fc15ab5f-893f-4739-ac58-4c3ce19761a2\b85e1b2d-fad7-4864-9ee9-76debe990e03.thumb.png" Size="6277" Offset="12579" />
+    <File Name="fc15ab5f-893f-4739-ac58-4c3ce19761a2\5a23494c-76b6-457c-a5df-2ea490b4cdee.txt" Size="587" Offset="18856" />
+    <File Name="fc15ab5f-893f-4739-ac58-4c3ce19761a2\c96b640f-8844-4af4-b757-5e269c169a14.txt" Size="587" Offset="19443" />
+  </Files>
+</FileCabinet>ï»¿<?xml version='1.0' encoding='UTF-8'?>
+<Tour ID="fc15ab5f-893f-4739-ac58-4c3ce19761a2" Title="Nessie Collaboration" Descirption="" Description="" RunTime="10" Author="Erin Johnson" AuthorEmail="" OrganizationUrl="" OrganizationName="WWTA" Keywords="" UserLevel="Beginner" Classification="0" Taxonomy="" DomeMode="False" TimeLineTour="False">
+  <TourStops>
+    <TourStop Id="b85e1b2d-fad7-4864-9ee9-76debe990e03" Name="" Description="" Thumbnail="" Duration="00:00:10" Master="False" TransitionType="Slew" TransitionTime="2" TransitionOutTime="2" TransitionHoldTime="4" NextSlide="Next" InterpolationType="Linear" HasLocation="True" LocationAltitude="12" LocationLat="42.3736111111111" LocationLng="-71.1105555555556" HasTime="True" StartTime="12/4/2014 9:30:20 PM" EndTime="12/4/2014 9:30:20 PM" ActualPlanetScale="True" ShowClouds="False" EarthCutawayView="False" ShowConstellationBoundries="False" ShowConstellationFigures="False" ShowConstellationSelection="True" ShowEcliptic="False" ShowElevationModel="True" ShowFieldOfView="False" ShowGrid="False" ShowHorizon="False" ShowHorizonPanorama="False" ShowMoonsAsPointSource="False" ShowSolarSystem="True" FovTelescope="0" FovEyepiece="0" FovCamera="0" LocalHorizonMode="False" GalacticMode="False" FadeInOverlays="False" SolarSystemStars="False" SolarSystemMilkyWay="False" SolarSystemCosmos="True" SolarSystemCMB="False" SolarSystemOrbits="True" SolarSystemMinorOrbits="False" SolarSystemOverlays="False" SolarSystemLighting="True" ShowISSModel="False" SolarSystemScale="100" MinorPlanetsFilter="255" PlanetOrbitsFilter="2147483647" SolarSystemMultiRes="True" SolarSystemMinorPlanets="False" SolarSystemPlanets="True" ShowEarthSky="True" ShowEquatorialGridText="True" ShowGalacticGrid="False" ShowGalacticGridText="True" ShowEclipticGrid="False" ShowEclipticGridText="True" ShowEclipticOverviewText="False" ShowAltAzGrid="False" ShowAltAzGridText="True" ShowPrecessionChart="False" ConstellationPictures="False" ConstellationsEnabled="" ShowConstellationLabels="False" ShowSkyOverlays="True" ShowConstellations="True" ShowSkyNode="True" ShowSkyGrids="True" SkyOverlaysIn3d="True" ConstellationFiguresFilter="-1,-1,33554431" ConstellationBoundariesFilter="-1,-1,33554431" ConstellationNamesFilter="-1,-1,33554431" ConstellationArtFilter="-1,-1,33554431">
+      <Place Name="Current Screen" DataSetType="Earth" Lat="36.139443277311" Lng="-40.2703758199216" Constellation="" Classification="Unidentified" Magnitude="0" Distance="0" AngularSize="60" ZoomLevel="48.2817274605846" Rotation="0" Angle="0" Opacity="100" Target="Sun" ViewTarget="0, 0, 0" TargetReferenceFrame="" DomeAlt="0" DomeAz="0">
+        <Description><![CDATA[]]></Description>
+        <BackgroundImageSet>
+          <ImageSet Generic="True" DataSetType="Earth" BandPass="Visible" />
+        </BackgroundImageSet>
+      </Place>
+      <Overlays>
+        <Overlay Id="8bedb1aa-3065-462c-bc57-3d3fa497ee4c" Type="TerraViewer.TextOverlay" Name="Alyssa Goodman (Harvard, PI)" X="834.3684" Y="547.7895" Width="306.4414" Height="88.1927" Rotation="0" Color="NamedColor:White" Url="" LinkID="" Animate="False" Anchor="Screen">
+          <Text>
+            <TextObject Bold="False" Italic="False" Underline="False" FontSize="14" FontName="Arial" ForgroundColor="NamedColor:White" BackgroundColor="NamedColor:Black" BorderStyle="None">Alyssa Goodman (Harvard, PI)
+Cara Battersby (CfA)
+Christopher Beaumont (CfA/STScI)
+Tom Damme (CfA)</TextObject>
+          </Text>
+        </Overlay>
+        <Overlay Id="3763d800-7bb6-4447-ad3d-490d51e588a4" Type="TerraViewer.TextOverlay" Name="Joao Alves (U.Vienna)" X="1721.947" Y="-63.52038" Width="197.5008" Height="23.18749" Rotation="0" Color="NamedColor:White" Url="" LinkID="" Animate="False" Anchor="Screen">
+          <Text>
+            <TextObject Bold="False" Italic="False" Underline="False" FontSize="14" FontName="Arial" ForgroundColor="NamedColor:White" BackgroundColor="NamedColor:Black" BorderStyle="None">Joao Alves (U.Vienna)</TextObject>
+          </Text>
+        </Overlay>
+        <Overlay Id="590077e4-b374-4752-a81e-1dab8b50deef" Type="TerraViewer.TextOverlay" Name="James Jackson (BU)" X="774" Y="462.9474" Width="183.5737" Height="23.18749" Rotation="0" Color="NamedColor:White" Url="" LinkID="" Animate="False" Anchor="Screen">
+          <Text>
+            <TextObject Bold="False" Italic="False" Underline="False" FontSize="14" FontName="Arial" ForgroundColor="NamedColor:White" BackgroundColor="NamedColor:Black" BorderStyle="None">James Jackson (BU)</TextObject>
+          </Text>
+        </Overlay>
+        <Overlay Id="05cc7cec-7dd8-4f0f-86d5-4455c7bdc373" Type="TerraViewer.TextOverlay" Name="Bob Benjamin (U. Wisconson Whitewater)" X="584.7368" Y="356.8947" Width="364.1518" Height="23.18749" Rotation="0" Color="NamedColor:White" Url="" LinkID="" Animate="False" Anchor="Screen">
+          <Text>
+            <TextObject Bold="False" Italic="False" Underline="False" FontSize="14" FontName="Arial" ForgroundColor="NamedColor:White" BackgroundColor="NamedColor:Black" BorderStyle="None">Bob Benjamin (U. Wisconson Whitewater)</TextObject>
+          </Text>
+        </Overlay>
+        <Overlay Id="d564c7b7-df42-4cbc-8aeb-112fd6111ff1" Type="TerraViewer.TextOverlay" Name="Catherine Zucker (U. Virginia)" X="423.2106" Y="520.0526" Width="260.5008" Height="23.18749" Rotation="0" Color="NamedColor:White" Url="" LinkID="" Animate="False" Anchor="Screen">
+          <Text>
+            <TextObject Bold="False" Italic="False" Underline="False" FontSize="14" FontName="Arial" ForgroundColor="NamedColor:White" BackgroundColor="NamedColor:Black" BorderStyle="None">Catherine Zucker (U. Virginia)</TextObject>
+          </Text>
+        </Overlay>
+        <Overlay Id="ef4f2fb9-fa29-4150-b222-063bb1750e54" Type="TerraViewer.TextOverlay" Name="Andreas Burkert (U.Munich)" X="1571.842" Y="241.0526" Width="244.4682" Height="23.18749" Rotation="0" Color="NamedColor:White" Url="" LinkID="" Animate="False" Anchor="Screen">
+          <Text>
+            <TextObject Bold="False" Italic="False" Underline="False" FontSize="14" FontName="Arial" ForgroundColor="NamedColor:White" BackgroundColor="NamedColor:Black" BorderStyle="None">Andreas Burkert (U.Munich)</TextObject>
+          </Text>
+        </Overlay>
+        <Overlay Id="b0884172-1daa-4523-948a-6f08507a22ea" Type="TerraViewer.TextOverlay" Name="Joao Alves (U. Vienna)" X="1604.578" Y="-77.64613" Width="202.8419" Height="23.18749" Rotation="0" Color="NamedColor:White" Url="" LinkID="" Animate="False" Anchor="Screen">
+          <Text>
+            <TextObject Bold="False" Italic="False" Underline="False" FontSize="14" FontName="Arial" ForgroundColor="NamedColor:White" BackgroundColor="NamedColor:Black" BorderStyle="None">Joao Alves (U. Vienna)</TextObject>
+          </Text>
+        </Overlay>
+        <Overlay Id="3cba3eca-cbbb-4d22-96f4-40dd571db9d7" Type="TerraViewer.TextOverlay" Name="Jens Kauffmann (MPIfR,Bonn)" X="1557.158" Y="272.0527" Width="266.9357" Height="23.18749" Rotation="0" Color="NamedColor:White" Url="" LinkID="" Animate="False" Anchor="Screen">
+          <Text>
+            <TextObject Bold="False" Italic="False" Underline="False" FontSize="14" FontName="Arial" ForgroundColor="NamedColor:White" BackgroundColor="NamedColor:Black" BorderStyle="None">Jens Kauffmann (MPIfR,Bonn)</TextObject>
+          </Text>
+        </Overlay>
+        <Overlay Id="6fda8605-b6cf-4900-b14d-db3034cb346a" Type="TerraViewer.TextOverlay" Name="Joao Alves (U. Vienna)" X="1509.842" Y="156.2105" Width="202.8419" Height="23.18749" Rotation="0" Color="NamedColor:White" Url="" LinkID="" Animate="False" Anchor="Screen">
+          <Text>
+            <TextObject Bold="False" Italic="False" Underline="False" FontSize="14" FontName="Arial" ForgroundColor="NamedColor:White" BackgroundColor="NamedColor:Black" BorderStyle="None">Joao Alves (U. Vienna)</TextObject>
+          </Text>
+        </Overlay>
+        <Overlay Id="e2d33467-e80e-4f5e-8652-70004a1da857" Type="TerraViewer.TextOverlay" Name="Thomas Robitaille (MPIA,Heidelberg)" X="1529.421" Y="303.0525" Width="323.5645" Height="23.18749" Rotation="0" Color="NamedColor:White" Url="" LinkID="" Animate="False" Anchor="Screen">
+          <Text>
+            <TextObject Bold="False" Italic="False" Underline="False" FontSize="14" FontName="Arial" ForgroundColor="NamedColor:White" BackgroundColor="NamedColor:Black" BorderStyle="None">Thomas Robitaille (MPIA,Heidelberg)</TextObject>
+          </Text>
+        </Overlay>
+        <Overlay Id="da93cd0e-d0a7-4d55-8c32-19d84f055f82" Type="TerraViewer.TextOverlay" Name="Rowan Smith (Manchester)" X="1286.316" Y="200.2632" Width="239.1271" Height="23.18749" Rotation="0" Color="NamedColor:White" Url="" LinkID="" Animate="False" Anchor="Screen">
+          <Text>
+            <TextObject Bold="False" Italic="False" Underline="False" FontSize="14" FontName="Arial" ForgroundColor="NamedColor:White" BackgroundColor="NamedColor:Black" BorderStyle="None">Rowan Smith (Manchester)</TextObject>
+          </Text>
+        </Overlay>
+      </Overlays>
+      <VisibleLayers>
+        <Layer StartOpacity="1" EndOpacity="1" ParamCount="5" StartParam0="1" EndParam0="1" StartParam1="1" EndParam1="1" StartParam2="1" EndParam2="1" StartParam3="1" EndParam3="1" StartParam4="1" EndParam4="1">5a23494c-76b6-457c-a5df-2ea490b4cdee</Layer>
+        <Layer StartOpacity="1" EndOpacity="1" ParamCount="5" StartParam0="1" EndParam0="1" StartParam1="1" EndParam1="1" StartParam2="0" EndParam2="0" StartParam3="1" EndParam3="1" StartParam4="1" EndParam4="1">c96b640f-8844-4af4-b757-5e269c169a14</Layer>
+      </VisibleLayers>
+    </TourStop>
+  </TourStops>
+  <ReferenceFrames>
+    <ReferenceFrame Name="ISS" Parent="Earth" ReferenceFrameType="Orbital" Reference="Custom" ParentsRoationalBase="False" MeanRadius="130" Oblateness="0" Heading="0" Pitch="0" Roll="0" Scale="1" Tilt="0" Translation="0, 0, 0" RotationalPeriod="0" ZeroRotationDate="0" RepresentativeColor="NamedColor:White" ShowAsPoint="False" ShowOrbitPath="False" StationKeeping="True" SemiMajorAxis="6788797.95964009" SemiMajorAxisScale="Meters" Eccentricity="0.0007261" Inclination="51.6452" ArgumentOfPeriapsis="123.1142" LongitudeOfAscendingNode="295.2014" MeanAnomolyAtEpoch="237.0708" MeanDailyMotion="5587.4794248" Epoch="2457004.03899603" />
+  </ReferenceFrames>
+  <Layers>
+    <Layer Id="5a23494c-76b6-457c-a5df-2ea490b4cdee" Type="TerraViewer.SpreadSheetLayer" Name="Sheet1_5" ReferenceFrame="Earth" Color="NamedColor:White" Opacity="1" StartTime="1/1/0001 12:00:00 AM" EndTime="12/31/9999 11:59:59 PM" FadeSpan="00:00:00" FadeType="None" TimeSeries="False" BeginRange="12/31/9999 11:59:59 PM" EndRange="1/1/0001 12:00:00 AM" Decay="16" CoordinatesType="Spherical" LatColumn="2" LngColumn="3" GeometryColumn="-1" AltType="Depth" MarkerMix="Same_For_All" ColorMap="Per_Column_Literal" MarkerColumn="-1" ColorMapColumn="-1" PlotType="Gaussian" MarkerIndex="0" MarkerScale="World" AltUnit="Meters" AltColumn="-1" StartDateColumn="-1" EndDateColumn="-1" SizeColumn="-1" HyperlinkFormat="" HyperlinkColumn="-1" ScaleFactor="8" PointScaleType="Power" ShowFarSide="True" RaUnits="Hours" HoverTextColumn="0" XAxisColumn="-1" XAxisReverse="False" YAxisColumn="-1" YAxisReverse="False" ZAxisColumn="-1" ZAxisReverse="False" CartesianScale="Meters" CartesianCustomScale="1" DynamicData="False" AutoUpdate="False" DataSourceUrl="" />
+    <Layer Id="c96b640f-8844-4af4-b757-5e269c169a14" Type="TerraViewer.SpreadSheetLayer" Name="Nessie Collaborators" ReferenceFrame="Earth" Color="ARGBColor:255:255:255:128" Opacity="1" StartTime="1/1/0001 12:00:00 AM" EndTime="12/31/9999 11:59:59 PM" FadeSpan="00:00:00" FadeType="None" TimeSeries="False" BeginRange="12/31/9999 11:59:59 PM" EndRange="1/1/0001 12:00:00 AM" Decay="16" CoordinatesType="Spherical" LatColumn="2" LngColumn="3" GeometryColumn="-1" AltType="Depth" MarkerMix="Same_For_All" ColorMap="Per_Column_Literal" MarkerColumn="-1" ColorMapColumn="-1" PlotType="PushPin" MarkerIndex="10" MarkerScale="Screen" AltUnit="Meters" AltColumn="-1" StartDateColumn="-1" EndDateColumn="-1" SizeColumn="-1" HyperlinkFormat="" HyperlinkColumn="-1" ScaleFactor="16" PointScaleType="Power" ShowFarSide="True" RaUnits="Hours" HoverTextColumn="0" XAxisColumn="-1" XAxisReverse="False" YAxisColumn="-1" YAxisReverse="False" ZAxisColumn="-1" ZAxisReverse="False" CartesianScale="Meters" CartesianCustomScale="1" DynamicData="False" AutoUpdate="False" DataSourceUrl="" />
+  </Layers>
+</Tour>‰PNG
+
+   IHDR   `   -   Q^nŠ   sRGB ®Îé   gAMA  ±üa   	pHYs  Ã  ÃÇo¨d  IDATx^½[Gs#ëuE`Î9g0€$H‚A$HD`Î99Oà„7yæM~ïAó$«Tå²«¤¼rya¯¼Ò?ÐJ;ýo]^¨¼°ŽÏýàãP-»ähªN¡ñ¡»‰>çÞsïíÆø/ü·„ÝQ>:Ÿ¯ìŒ†nO‡ýÁpb­=œfµ‡KÛ»ÃÉ–öp|¥5¼²=~ôd%ìâû¦°¹º5l(µ†G–¦ÃüãïÃÿý§?…ÿüçÿ	ÿûï~®ïv‡åM„U½Ø»Ã'óáýç_†ÎÂ†âú°™Ç
+,jÛPlÍŽ„Ï.…‡¦]áJ§#ìô;Ã{G£áú¦jÝïýaÀß
+Å•ùXÚbëÎn?\ÂÌú2šH¬w ¾¶–¾~,ïÍ¡¢«î©!¬lO£²§ÆÊÄ•Û`(l€kÜ‡ÿúÏÿ@ôßÌþLµ0•6ÂPÒÀ}m<W;êûú0·½†êžA+šo±#¥¾ñ5m0ÕØQÚÕ‹í“Ylí#0ëæßtb!4Œ½£ITVé~ÿ¯ÝÅGqyVŽF0òanogóÈkqÂXÕŠD’\oÇÀÌ ^½XÆÈ|ŒvdpÍTÞcQ=I¶ÀY‚þð‡ß+òýO¿…!½Œl˜ò-0RÁÄc…õ0dUÁWÃ5_Ñ„„šÄWÙ`iƒ¡Â†œæô\°{:áôuÂâêÂêö(Bûã()ÍÓ½Ž¯ ÝÅEfN*¶Ç)À(aäMãö½%€¹ŠYÞÇ°‹ë£¸uo}]¨ëîDy*fTç‘`iÌ%™å¨ïr!ü«0»} CJD ù¼°ÆR
+ ÇˆhE|_X«ÖÌÀHa$*Ýht÷Â@ñÌ®âö.Œ,ømk‡gÒƒí£1¬„‚ÈÉÍÐ½ž†îâ!)9k^ÏÂ¿6Œ…Ý)ìOáôîû{IˆBt`fÕ‡Ã³)„ŽG\èÃé­4¸ú`È'$W !­„^E‚ñŒ|‰rù\‰—¬0pÛ\ÙŒ¸j±±&fƒÅv'¦ûÑ8ÐÅLc6T¶¢ÖÕƒÑ¥ 6G±¾À.¿ãüÊãu¯ë¡»xc
+vàž?¿7ÌˆÃr(€­ƒqœ/£ÉÓK¯‹‘´_Ýcäm1¶Ü[çë(kwè:’[¥‘ŸCKÉå6É6ds›ï£â¨: Ñ.Ù Û
+ Ù 6/öSÖ¨[Ú„zþÝ‘ùAŒ¯t!§µ	V³t”XàwÁÂ¦kü>Î>ÖëºAè.Þl¶*Fú6ŽH~hKnøf»±v0Œé­Q”:»°¾Äön S+˜aÚ¯ïMb‰¯û,¾ÄÑ³ÅõšýéÙ•0æT+A. ˆf¤‹XÜ6Ë{­ÖE/$hgiµmXÙFµ«ï^wàñ£n¶9±ÊÈÿõ?¸ppDèÈGÏz1²@\Z–îõÝt¯Ô´$„¶±F‚W¶Y|×Ð?ÞŽÙ-ÆV‚pOºHôNn-bóx–VåÇ…1#VC­«ÒaG|µqâë’*.‘ŸW­EºXNÄvŒù$_Ï³Êµ÷´"3ÉÌ`fÑ÷ÎxágXúqt{]Á^,2êõ}þå7ø·ß6âï>t`‘ÙPçl‡ÁhÒ½Î€îâµ8qçÞvXx7)BŸ×ŽrK¼SpOt 8×C!‚˜ßÐsÇ¹ß,_}X§Xk+´7‚ifL×`;ñïM f@Æ¨E²@ˆ’å½*Gö© øšUcZ!³6Åº“ÕhGv³éMÖ‚^ä·9°´åÇ|ÈÝC/ž=ô0+ýØØ÷bzÕ‹j+Ï§s7 ÝÅk¡ ?·XDé©;ÇÃØ:w¼µ6úÇš1±6ˆy’?²ìÆøº›™1ˆ‰•atú»ágO>µÜßD:½¨bn¬jbÔ¶(_7d‘|vB†Œ2¶¥$5§‚bY$šÑn’ˆçš¶ÎýD BöM-d/bvð}	ÛRÎ‰uíœìÌ†!ßÅÊ®‹´¢­£ç=p9™½~Ç!dg¥é^ï5¡»x-ýŒüí?öØZ®QˆŸÎÁŒÎ¸°É¨šÑó71I[^@ÏD/
+í­(ëìB®­™6Î#¿µäË¬À, —‹·2I20¦—R‚¤‹JùLÏ•,á:#?ú™!£ÆŠR 3‹¹™]T\™É56Ôô81¹ÀöaKÛ^l0k'V|°ûzÙ;øáèjÖ½ÞkBw1fäd¥ãôt[‡Ãlé†ñøÉ(þþS†fºai­ÅÄœ›ž;†ÐI ›GL¯¹°°7ï|r[yœdã,6ôÏŒâÁ7!}Hª³²´!N&]ÕáÐn„\!ÿ$Ê£‚¥[ŠŠý\^%˜	FŠ`L%hK*3ÒË‘TÝJÛñamg³ë~äYÑÉ,ôr6h÷u£Éå€ÉlÖ½îk@w1f¸º›qç|{§ã$ygw8xítb–3¹äCpÊ…¹AìÜÁÖ13a³—’žé>;:PÈ¡(‡sAew:|}pOûTFÄÉÄ,½<‹¨L²¦Böøéœ"¤ª‰8B´dˆ*Ôù,Ðû1H¶È>"@TÂ$¯Éù0ÄåÀP†Ê®vìžÑØÝ¡þFNC#2+k‘oµ!¿‰ÿæ;"ÝÅ˜`4ZâèlšƒÌi?§ì0¶)†gØ	Ï¸“Ëƒì,üZ[ÊhóÎ¸Ñ6è`WäÁ‡1GÐ‹´†*õìÑÛ‘emGIOª³#’ÈÁÊ”Ob¡DÅ²¥H‹÷³C¿70Œ™Ì ‰öËÈkR>L¬„V×îub”]ØÙù4º}=0¤–£ÆÑ‰ŒêzÑÍ<_RÅÕ¹ök@w1&äeáígeWº	7ûêAN¶œ*Y„—w½XØñ`i§'cøÙ§Ì­[a(hB%ûñÆþvv%$™^Ÿ@‚Ê)€ šÛ,–ÉD<§Xs[JFs”@ý2GëäÈœ féŠDˆ‹BLÒÓåOò)EH,µbyNãþƒ¼z‚­¿	%œhy‰üE­
+
+›WkCfæcÝÅ˜ÐÖRƒ÷—h7ƒ$ÚËkˆíe€O£»ë‡"†Sc½Ö>+­¥¶ÒƒRB0Ó^y7»‰$¨È§ýØÙ˜õb€0I“x)ÊÊûå8ýœŽ¥5ÎiI™-Æ
+ çH– YS‰–~'NÙžŒãîÝ	Ø»UÍ1¤–¡±×Án¬›ç¯ÆØtm´?ëº‹1!àwàøt‹Ûƒª÷ŸÝ’é¶ÃË.|ü¾Ï^Â3ëc_Ïb[Ì¶²ÒŽ¤2HBt&‰“ÈL¡G‰’²J_Z‡¸"¹»I‚%rUÕP¤’^_Î# æ¥&h)Æ"h¤{’NˆÑ/Ý1™Û	ùÈ¨iââç$î£mNbjÁË,©@mG^<YÆüÊÏ[‹.ÿæÙ±é]ŒÐ]Œ	sì›Cœzy³nŒ­öÐS»ÙWûðæ•KŒ*¹¯¯
+¤t)$EZC!\‘IB)ù0'i¯†T‚"˜³i)ôq-ò?àÂûÕ«t@<¿ié–d
+¦ Z«Z
+“ˆÅó“óíï‰ÉE5ì~ÆÙ™ùqLz†ÜÈohÆû×ûøÅwwqïÖ26·fq÷ö:vVýº×#t¿		ñØÙŸÀÊ>‡¶q“$l¹£Ä*­hïÖ4òmôQéPd˜’þœv¢¸„ËÄ
+Ñ’âõ&Ý$X,ä³}\cPµA`äGoEäŽ©ÌÒŽ²P«ý#’ò`¢&Éˆ„\¶™l†Ðt©»¬£sƒøôfß¿9Á§÷'øáÕ.Âoqÿd	ñ7ÖŽê.~1rrÒ1¿DQ‡s¡ Çú~v9=XÝÄ‹®kÒË"J»i¼p!ä¯ðùçÑ$9"ÂåýMR\E™ˆåY€<˜¡ 2h‰Ê‚$Kd% ˜¦ŒU[Ô>öê]Ý˜Xâ	ÿ9‰ùÍ:žÜ[Âë'[øöñ6Þ=ÙFnvº.1@wñ‹QYQ€¡)º}œÍ>Þ;Ó‡ý³ f=|ïPv ºÉ’%0JðeD‰ýêÙ_{¯öSÛB>	ae cá6²¨›Š-Hb7—XÀm“ˆ)âš »#±%“êŒˆ¬L®Œáåã|ÿúPEüÇ×áQˆïð‹§{€²â{b¦»øÅ¨­+µ‡“A{É³ Àî`¯ïç˜Ïî…Ýš\…,Eš>áÿ×û«PŸ‹E%p€’È‹Ê&ùÚ¬îŠÒûYgÔ[Î^›”ørÉ‰~¶©&Z—Ê€”bdYš±µ7ÇWññÕ>¼>¦ýœãí³~üx?¾?Â'ÖK÷×á!è.~1,uÅ¨hkã’hv©umê6BBµME¢@;ÉÑd¡ÕÈ¤Kô]"X[×ö½º®Àcâ(jƒÃ­¦]Õépò5
+ñRäYxÕ@&õ†Ö$]•É<Õ‚Òz$0L’92G¤”°ËéÇÓoýßá‡×øöÙ®²ooáÍ3ÚÏó]|z{„zE×á!è.~1*ª
+QfkÕ2€ÃR^s§Û »žfOåRñ„|³xo´Ý”5!æ
+Ä.´)²Od[¢×LrkÚzUäKg¥=9“ˆ‚Bp&0eÒö$âeðŠ
+ ¶EÏ§eiS´ÖŽ{ñíÓm|x¾ç÷—ÙýÌãýË=üðr¯hCï^Rœ4Ôrb€îâ£°8ev;eòó‘zd6´a`r IŒ®i/È•.HÖ/­]Æ…OK'DUÔÊþÒÍHFIÛ)DªÇ”ò9¬i´5™’M¤ã‘s¨¿-ÞÏè—ÎÌDÛ”'n¶þ^|ÇèO¢ß=áéý5¼}±ƒ÷/v¹v„w/Žð­©ÎÂ¿­ÃCÐ]üb¤g¦£yÐ…Ò®NõH©í@íÐ0r»<0³—¿Jþeh-a®jÑÑÏ"«zvùLÖÄªÄóå¶‚V—‰§¨5ââ¹ g_Mê\‘ïÁnJ`LÜÂ ñÚãÊZL.MÑëï üþIúóû«xóbïh?ožîâíÓäM””ð{êðt¿F£Y=b¬¹U[W;r½+¨™Ù¦…¸ËÄ?E·-äkPDG?Sâd"ÉqR,UÑ%Á2È±Àª_¼œ…X†5•!áò*ª?òx|T iY	±13­*¾Ô
+»w¯ItøÃ-åõ‰‡·ñüá&Þ>á5!3ÁsÖ„ÌÌT]b€îbL¨w4b`®†Ä|Ô8h_šGÅú9’X¥[¹È‚Ë32/ A2BÖ#Q›La¢ÑKïWÑ/={6‰•+Ã—€5EÝdã~"¬Ìªõ”u B>3He £¥1[3ÊëÕÃ™çøï»—,´ïOñšýÿ‹‡øáÍ±jAß<ÙÀ[Šrr0sÜ=#Ö]Œ	…5èt‘l‰ê"4zP9µˆKŒ	Ù‘èÓˆÚ‹FôUþª¨è'qb5Ù’$–0I¤Gºœh½PY#~/óˆ.¸ Ÿï—.)½õ=.üâÝûþüêÓ=üðöî.âîÑ>¾=£(œˆ_íãÍó-ŒOöè^ŒÐ]Œ	q©9èëCZ#>>é•Mhô"¥¼ñ´e®B‹z}òB¬z "¤çDÈ—î&S¼\¢[²DjEdÿè1Qò"ö#ÎG²ˆö#7Ù‚óSøÍ/ïãÇïØó¿`§ÃáKüÿ›;‹x|¾Ä9€í(»£{ç‹põ5é^ŒÐ]ŒIhênçôÛÏ~¼ñŒÒª¦zä³&dYÚ¯ÚAÍË£¸*€1ñ
+dME3£ZZY±!ŸV¤¢ž–£Î)ûÈkD …ÏÖ%+® Ñ/ƒ[Uîž‡8`2òY|ÙåÜ>˜dñe'ôúîÌãíèÅ8½3‡*3I÷úc‚îbŒ0#¡°“ëCHoì@Ru3R+ëVÙ€šöV
+BÏ¢%/‰ 	¡Y‘nHÍH4•½(ÿ'qŠxBEþÒu Y¿”jðb}¡±ÒÙƒ/h?ôùœ|ÏÏ–p¸3Šg¶q—äoíûpÿþ:ÎiI[ûA¤¤&ê\{ÌÐ]Œ¼ÐN¿Ùœ	ä.$ûëäâô;àðµ!.„ÉóWu»ùs¤ØêHHqÍ"iRÄŠTA1u"ÿòY„|)ÌªñXÉ$%€_ÕðÏLà¼‡ï˜/žìãé#ÚÍ³=¼äöö^;ûÜ?_ÆÁé8F§œú×;tcG\ÊZ;]ßL²ØŸK”±ã0³E,ª«CnI¹rOžÄ'
+Q¢"üD¦ÚÉR;$ê…|õàFöÿœø¨mý´&hçVû+Ñ¤‹ˆÒºÒ‚ U.uûA&Ý;Ç¸{wO¾ÙÀþî8ÖÖ<8<ÃÒ¦{·ÇPk¥pz×;tc‡É3ÛÎ"[‹v["Súp^¬ôîÉ¹5uH.µh·""\õYûÉ5H9’®îÝHK)ÛÑE Í¶"çã#PÈÝX™ å—s‘5–7âîýM|xµƒùIäºë[CXß	bus{ÇX?ÄØRÌ7÷ 
+ÝÅë!-m¨ur&§QÌõK6¹—/¿ççœ ­dBU³º¡¦ÞGøˆoKÄË0¥&`¾þ.„PDî!1k¢ä«–T©w$_n‘S SYÖ6Çéó«XÙôabÕéUÑõÃaìÞÇÐ¢e<^ïz¯ÝÅëÁœ ",·ÞŠ"»~Øú8ìXI6£Qº¶€ò&’9	‘„Gç‰Zyâ˜5ê2TÉmgy/¤ê +rŽÈy4ò¥{Ò¦g¯Ü¨“Ÿº‹åö.líÑßçû0K«YïÇèrÖ÷8¾7ƒà’GeµÁ§½×ƒîâõ‘JrRËÑ4ÐŽ•ã æÖ½èº‘Z^«"^Ý>(ªCb§Pi+IšFúO(Ëˆ÷+dâe+$4Ñ¢¶%üR7„|uŽÄåT ‘D¦púU˜aŠ¥§S›nŒ®¸±v4†Åí F{qûÁ–Ž‚Èdgˆ¿±'`W¡»x}°ˆÿgÕZá]pÂ;kÇÌf/üsƒ‘_BÈ-d‹ú½g¼<½’â!-rû: ‚Èç.„¸t¬:þò6Ï%–”œW…Ô"ú>ç y)çÌjmƒ{Ù…•ý!¬ø™ýØ?Ç3 ÏÂïÏ`2õ¯óúÐ]¼$¤£°­‘åbz;0·åÁöñ0æ7ÑÐçDv³<¬±Â,ÿ‹E¢H‡r‰4U|)Ž´Ÿ—°K³ÄU!.ãb€Ç™%{"ÛJD
+›PkGzK‚+A¬z±xèÁøê’òØÁÅóxóöýW¡»xc(«¯ÁÄ†“œœÍb÷hw¦q|>=¾¶Üê0ª¢(÷ç#ÄD‰‹’§eEÈ•BL!d?®«Ï…è¨EqåW¡È'L´Â8ù	›…ô+ê]íhè$ù´§ž?á«ÿG=ÝÅƒ‰…«cÈ†–±Z–;1rcxÝÀZúþÔö J»l¬,ÐòLW,Fn__"ë‚0!]ÝŠ_Fü”Q.¢þRä_ úYä½ö _D”u
+™ÉD”:%ƒ¡á«YOº‹7Š”´´ù`®BtÎÚÐ=gCëH:'šù¾µNÎ%Ì¶…fv)êg&Š(­ˆ^d…lÓ–$ST¶D„ˆ’ÿÿAý0@ÝS’Û×ÒË9…|Ú\äoj·J(€ñÆ{~=è.Þ8rò³Ð5ÚŒƒU$¿
+ÎÉ4-,zÌl¹ÑâëAb]Ìò¿Ù‹UDš„,B‘B  ™$Äš"Þ®"òƒ«â#Â)Û’Ç“ªe¶É¹#„+eN!Mö5Åë^ÇW€îâWAAQ.ºGša­CçTºfšÐ=cCè(€í³ üNÌíùàœr¢¬Gnæµª›ejp"Ôÿõ’_0\ˆ" ùÒÍqÑRGTËª½WÝ“úŒûÈzôsYS6ÄsÉ9åÜ2S¤¿ùü/xôË"ƒmÏ?    IEND®B`‚‹      í½`I–%&/mÊ{JõJ×àt¡€`$Ø@ìÁˆÍæ’ìiG#)«*ÊeVe]f@Ìí¼÷Þ{ï½÷Þ{ï½÷º;N'÷ßÿ?\fdlöÎJÚÉž!€ªÈ?~|?"þÇ¿÷<©Ê2›TuÖVuºu¶lÚ¢]·Eµ¼ócÏ«i†ßÒÙ"ÿ±çYûcÏ—¿qr\^7M–~^U³E¶L·¾Õ—Y=¥/ÏîüØI¶˜ÔÅì"¥_ÿØþÞ£=úßýÛ~°ûhçÓG÷~ãä;UV¥ÇåeÞ¤[_ÓŸ,òå2»ócòóÇöíÒû?¶ûé£Ý‡îß§þ–³:ÏšôÉº~›×-¿õÅzYLçw~L~ò[;vîýØîî£ý{vö¨›|Ù¤¿W¶>?'$	Ë/^ž¿¥Oª%ÿþØýGû;îíþØÎƒG»÷íSWOªIú$_þt¶(–?öÝyÑæWY›×£ô»g½±{ðcÛö÷Ý£öß!Â4éw²éÛ†È´õä+€nÚjiGOÃÞ5£ß}ø'oæÕ‚ÆòªšmV”eÎ˜ßù±oçÅ,/'y}ñcûíÝ£¡ÿØÎ0ÜÛù“WÕ‘úõ¢hçiºõŠ(R–é“lù6=9§·¿È–ÓyÞ0®_ý^?vÿÞ£½ƒG÷©ç½G»„ë½ß89ÉÚy^Ë<ý©õ”©Ô¯/ŠeAô?™guYµmÞ\­Qú“Ç?vï€°'ÂÐ  ðÞ§¿qòÿ Î„3  ‹      í½`I–%&/mÊ{JõJ×àt¡€`$Ø@ìÁˆÍæ’ìiG#)«*ÊeVe]f@Ìí¼÷Þ{ï½÷Þ{ï½÷º;N'÷ßÿ?\fdlöÎJÚÉž!€ªÈ?~|?"þÇ¿÷<©Ê2›TuÖVuºu¶lÚ¢]·Eµ¼ócÏ«i†ßÒÙ"ÿ±çYûcÏ—¿qr\^7M–~^U³E¶L·¾Õ—Y=¥/ÏîüØI¶˜ÔÅì"¥_ÿØþÞ£=úßýÛ~°ûhçÓG÷~ãä;UV¥ÇåeÞ¤[_ÓŸ,òå2»ócòóÇöíÒû?¶ûé£Ý‡îß§þ–³:ÏšôÉº~›×-¿õÅzYLçw~L~ò[;vîýØîî£ý{vö¨›|Ù¤¿W¶>?'$	Ë/^ž¿¥Oª%ÿþØýGû;îíþØÎƒG»÷íSWOªIú$_þt¶(–?öÝyÑæWY›×£ô»g½±{ðcÛö÷Ý£öß!Â4éw²éÛ†È´õä+€nÚjiGOÃÞ5£ß}ø'oæÕ‚ÆòªšmV”eÎ˜ßù±oçÅ,/'y}ñcûíÝ£¡ÿØÎ0ÜÛù“WÕ‘úõ¢hçiºõŠ(R–é“lù6=9§·¿È–ÓyÞ0®_ý^?vÿÞ£½ƒG÷©ç½G»„ë½ß89ÉÚy^Ë<ý©õ”©Ô¯/ŠeAô?™guYµmÞ\­Qú“Ç?vï€°'ÂÐ  ðÞ§¿qòÿ Î„3  
